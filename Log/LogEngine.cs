@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace TeleBotDotNet.Log
 {
-    public class LogApi
+    public class LogEngine
     {
         private readonly List<LogItem> _logItems = new List<LogItem>();
         public bool Enabled { get; set; }

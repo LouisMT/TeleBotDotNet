@@ -12,19 +12,19 @@ using TeleBotDotNet.Responses.Types;
 
 namespace TeleBotDotNet
 {
-    public class BotApi
+    public class TeleBot
     {
-        private LogApi _log;
+        private LogEngine _log;
 
-        public BotApi(string apiToken, bool enableLog = false)
+        public TeleBot(string apiToken, bool enableLog = false)
         {
             ApiToken = apiToken;
             Log.Enabled = enableLog;
         }
 
-        public LogApi Log
+        public LogEngine Log
         {
-            get { return _log ?? (_log = new LogApi()); }
+            get { return _log ?? (_log = new LogEngine()); }
         }
 
         private static string ApiUrl
