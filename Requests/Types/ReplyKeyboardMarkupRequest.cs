@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web.Helpers;
 using TeleBotDotNet.Http;
 using TeleBotDotNet.Requests.Types.Bases;
 
@@ -14,13 +13,13 @@ namespace TeleBotDotNet.Requests.Types
 
         internal override void Parse(HttpData httpData, string key)
         {
-            httpData.Parameters.Add(key, Json.Encode(new
+            httpData.Parameters.Add(key, new
             {
                 keyboard = Keyboard,
                 resize_keyboard = ResizeKeyboard,
                 one_time_keyboard = OneTimeKeyboard,
                 selective = Selective
-            }));
+            }.ToJson());
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Web.Helpers;
 using TeleBotDotNet.Log;
 using TeleBotDotNet.Requests.Methods;
 using TeleBotDotNet.Requests.Methods.Bases;
@@ -103,7 +102,7 @@ namespace TeleBotDotNet
                 {
                     responseStream.CopyTo(stream);
                 }
-                return Json.Decode(Encoding.UTF8.GetString(stream.ToArray()));
+                return Encoding.UTF8.GetString(stream.ToArray()).FromJson();
             }
         }
 
@@ -175,7 +174,7 @@ namespace TeleBotDotNet
 
         public UpdateResponse ConvertWebhookResponse(string json)
         {
-            return UpdateResponse.Parse(Json.Decode(json));
+            return UpdateResponse.Parse(json.FromJson());
         }
     }
 }
