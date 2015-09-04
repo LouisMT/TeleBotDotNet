@@ -10,21 +10,21 @@ namespace TeleBotDotNet.Responses.Types
         }
 
         public int TotalCount { get; set; }
-        public List<PhotoSizeResponse> Photos { get; set; } 
+        public List<PhotoSizeResponse> Photos { get; set; }
 
-        internal static UserProfilePhotosResponse Parse(dynamic data)
+        internal static UserProfilePhotosResponse Parse(Json data)
         {
-            if (data == null || data.total_count == null || data.photos == null)
+            if (data == null || !data.Has("total_count") || !data.Has("photos"))
             {
                 return null;
             }
 
             var userProfilePhotosResponse = new UserProfilePhotosResponse
             {
-                TotalCount = data.total_count
+                TotalCount = data.Get<int>("total_count")
             };
 
-            foreach (var photo in data.photos)
+            foreach (var photo in data.GetJsonList("photo"))
             {
                 userProfilePhotosResponse.Photos.Add(PhotoSizeResponse.Parse(photo));
             }

@@ -7,7 +7,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public MessageResponse Result { get; set; }
 
-        internal static SendVideoResponse Parse(dynamic data)
+        internal static SendVideoResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -16,10 +16,10 @@ namespace TeleBotDotNet.Responses.Methods
 
             return new SendVideoResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description,
-                Result = MessageResponse.Parse(data.result)
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description"),
+                Result = MessageResponse.Parse(data.GetJson("result"))
             };
         }
     }

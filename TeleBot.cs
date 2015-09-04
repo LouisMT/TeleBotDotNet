@@ -92,7 +92,7 @@ namespace TeleBotDotNet
             }
         }
 
-        private dynamic DecodeWebResponse(WebResponse webResponse)
+        private Json DecodeWebResponse(WebResponse webResponse)
         {
             using (webResponse)
             using (var responseStream = webResponse.GetResponseStream())
@@ -102,7 +102,7 @@ namespace TeleBotDotNet
                 {
                     responseStream.CopyTo(stream);
                 }
-                return Encoding.UTF8.GetString(stream.ToArray()).FromJson();
+                return Json.Deserialize(Encoding.UTF8.GetString(stream.ToArray()));
             }
         }
 
@@ -174,7 +174,7 @@ namespace TeleBotDotNet
 
         public UpdateResponse ConvertWebhookResponse(string json)
         {
-            return UpdateResponse.Parse(json.FromJson());
+            return UpdateResponse.Parse(Json.Deserialize(json));
         }
     }
 }

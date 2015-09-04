@@ -12,17 +12,17 @@
         /// </summary>
         public string Title { get; set; }
 
-        internal static GroupChatResponse Parse(dynamic data)
+        internal static GroupChatResponse Parse(Json data)
         {
-            if (data == null || data.id == null || data.title == null)
+            if (data == null || !data.Has("id") || !data.Has("title"))
             {
                 return null;
             }
 
             return new GroupChatResponse
             {
-                Id = data.id,
-                Title = data.title
+                Id = data.Get<int>("id"),
+                Title = data.Get<string>("title")
             };
         }
     }

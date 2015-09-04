@@ -122,47 +122,47 @@ namespace TeleBotDotNet.Responses.Types
         /// </summary>
         public bool? GroupChatCreated { get; set; }
 
-        internal static MessageResponse Parse(dynamic data)
+        internal static MessageResponse Parse(Json data)
         {
-            if (data == null || data.message_id == null || data.from == null || data.date == null || data.chat == null)
+            if (data == null || !data.Has("message_id") || !data.Has("from") || !data.Has("date") || !data.Has("chat"))
             {
                 return null;
             }
 
             var messageResponse = new MessageResponse
             {
-                MessageId = data.message_id,
-                From = UserResponse.Parse(data.from),
-                Date = ((int?) data.date).ToDateTime(),
-                UserChat = UserResponse.Parse(data.chat),
-                GroupChat = GroupChatResponse.Parse(data.chat),
-                ForwardFrom = UserResponse.Parse(data.forward_from),
-                ForwardDate = ((int?) data.forward_date).ToDateTime(),
-                ReplyToMessage = MessageResponse.Parse(data.reply_to_message),
-                Text = data.text,
-                Audio = AudioResponse.Parse(data.audio),
-                Document = DocumentResponse.Parse(data.document),
-                Sticker = StickerResponse.Parse(data.sticker),
-                Video = VideoResponse.Parse(data.video),
-                Contact = ContactResponse.Parse(data.contact),
-                Location = LocationResponse.Parse(data.location),
-                NewChatParticipant = UserResponse.Parse(data.new_chat_participant),
-                LeftChatParticipant = UserResponse.Parse(data.left_chat_participant),
-                NewChatTitle = data.new_chat_title,
-                DeleteChatPhoto = data.delete_chat_photo,
-                GroupChatCreated = data.group_chat_created
+                MessageId = data.Get<int>("message_id"),
+                From = UserResponse.Parse(data.GetJson("from")),
+                Date = data.GetDateTime("date"),
+                UserChat = UserResponse.Parse(data.GetJson("chat")),
+                GroupChat = GroupChatResponse.Parse(data.GetJson("chat")),
+                ForwardFrom = UserResponse.Parse(data.GetJson("forward_from")),
+                ForwardDate = data.GetDateTime("forward_date"),
+                ReplyToMessage = MessageResponse.Parse(data.GetJson("reply_to_message")),
+                Text = data.Get<string>("text"),
+                Audio = AudioResponse.Parse(data.GetJson("audio")),
+                Document = DocumentResponse.Parse(data.GetJson("document")),
+                Sticker = StickerResponse.Parse(data.GetJson("sticker")),
+                Video = VideoResponse.Parse(data.GetJson("video")),
+                Contact = ContactResponse.Parse(data.GetJson("contact")),
+                Location = LocationResponse.Parse(data.GetJson("location")),
+                NewChatParticipant = UserResponse.Parse(data.GetJson("new_chat_participant")),
+                LeftChatParticipant = UserResponse.Parse(data.GetJson("left_chat_participant")),
+                NewChatTitle = data.Get<string>("new_chat_title"),
+                DeleteChatPhoto = data.Get<bool?>("delete_chat_photo"),
+                GroupChatCreated = data.Get<bool?>("group_chat_created")
             };
 
-            if (data.photo != null)
+            if (data.Has("photo"))
             {
-                foreach (var photo in data.photo)
+                foreach (var photo in data.GetJsonList("photo"))
                 {
                     messageResponse.Photo.Add(PhotoSizeResponse.Parse(photo));
                 }
             }
-            if (data.new_chat_photo != null)
+            if (data.Has("new_chat_photo"))
             {
-                foreach (var photo in data.new_chat_photo)
+                foreach (var photo in data.GetJsonList("new_chat_photo"))
                 {
                     messageResponse.NewChatPhoto.Add(PhotoSizeResponse.Parse(photo));
                 }

@@ -13,13 +13,13 @@ namespace TeleBotDotNet.Requests.Types
 
         internal override void Parse(HttpData httpData, string key)
         {
-            httpData.Parameters.Add(key, new
+            httpData.Parameters.Add(key, Json.Serialize(new
             {
                 keyboard = Keyboard,
                 resize_keyboard = ResizeKeyboard,
                 one_time_keyboard = OneTimeKeyboard,
                 selective = Selective
-            }.ToJson());
+            }));
         }
     }
 }

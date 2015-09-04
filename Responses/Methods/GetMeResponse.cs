@@ -7,7 +7,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public UserResponse Result { get; set; }
 
-        internal static GetMeResponse Parse(dynamic data)
+        internal static GetMeResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -16,10 +16,10 @@ namespace TeleBotDotNet.Responses.Methods
 
             return new GetMeResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description,
-                Result = UserResponse.Parse(data.result)
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description"),
+                Result = UserResponse.Parse(data.GetJson("result"))
             };
         }
     }

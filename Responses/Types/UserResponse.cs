@@ -22,19 +22,19 @@
         /// </summary>
         public string UserName { get; set; }
 
-        internal static UserResponse Parse(dynamic data)
+        internal static UserResponse Parse(Json data)
         {
-            if (data == null || data.id == null || data.first_name == null)
+            if (data == null || !data.Has("id") || !data.Has("first_name"))
             {
                 return null;
             }
 
             return new UserResponse
             {
-                Id = data.id,
-                FirstName = data.first_name,
-                LastName = data.last_name,
-                UserName = data.username
+                Id = data.Get<int>("id"),
+                FirstName = data.Get<string>("first_name"),
+                LastName = data.Get<string>("last_name"),
+                UserName = data.Get<string>("username")
             };
         }
     }

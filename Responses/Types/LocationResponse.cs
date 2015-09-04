@@ -5,17 +5,17 @@
         public float Longitude { get; set; }
         public float Latitude { get; set; }
 
-        internal static LocationResponse Parse(dynamic data)
+        internal static LocationResponse Parse(Json data)
         {
-            if (data == null || data.longitude == null || data.latitude == null)
+            if (data == null || !data.Has("longitude") || !data.Has("latitude"))
             {
                 return null;
             }
 
             return new LocationResponse
             {
-                Longitude = data.longitude,
-                Latitude = data.latitude
+                Longitude = data.Get<float>("longitude"),
+                Latitude = data.Get<float>("latitude")
             };
         }
     }

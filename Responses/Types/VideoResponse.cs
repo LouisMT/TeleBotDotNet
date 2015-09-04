@@ -11,23 +11,23 @@
         public int? FileSize { get; set; }
         public string Caption { get; set; }
 
-        internal static VideoResponse Parse(dynamic data)
+        internal static VideoResponse Parse(Json data)
         {
-            if (data == null || data.file_id == null || data.width == null || data.height == null || data.duration == null || data.thumb == null)
+            if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height") || !data.Has("duration") || !data.Has("thumb"))
             {
                 return null;
             }
 
             return new VideoResponse
             {
-                FileId = data.file_id,
-                Width = data.width,
-                Height = data.height,
-                Duration = data.duration,
-                Thumb = PhotoSizeResponse.Parse(data.thumb),
-                MimeType = data.mime_type,
-                FileSize = data.file_size,
-                Caption = data.caption
+                FileId = data.Get<int>("file_id"),
+                Width = data.Get<int>("width"),
+                Height = data.Get<int>("height"),
+                Duration = data.Get<int>("duration"),
+                Thumb = PhotoSizeResponse.Parse(data.GetJson("thumb")),
+                MimeType = data.Get<string>("mime_type"),
+                FileSize = data.Get<int?>("file_size"),
+                Caption = data.Get<string>("caption")
             };
         }
     }

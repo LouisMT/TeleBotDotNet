@@ -7,19 +7,19 @@
         public string MimeType { get; set; }
         public int? FileSize { get; set; }
 
-        internal static AudioResponse Parse(dynamic data)
+        internal static AudioResponse Parse(Json data)
         {
-            if (data == null || data.file_id == null || data.duration == null)
+            if (data == null || !data.Has("file_id") || !data.Has("duration"))
             {
                 return null;
             }
 
             return new AudioResponse
             {
-                FileId = data.file_id,
-                Duration = data.duration,
-                MimeType = data.mime_type,
-                FileSize = data.file_size
+                FileId = data.Get<string>("file_id"),
+                Duration = data.Get<int>("duration"),
+                MimeType = data.Get<string>("mime_type"),
+                FileSize = data.Get<int?>("file_size")
             };
         }
     }

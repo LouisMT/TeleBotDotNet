@@ -8,20 +8,20 @@
         public string MimeType { get; set; }
         public int? FileSize { get; set; }
 
-        internal static DocumentResponse Parse(dynamic data)
+        internal static DocumentResponse Parse(Json data)
         {
-            if (data == null || data.file_id == null || data.thumb == null)
+            if (data == null || !data.Has("file_id") || !data.Has("thumb"))
             {
                 return null;
             }
 
             return new DocumentResponse
             {
-                FileId = data.file_id,
-                Thumb = PhotoSizeResponse.Parse(data.thumb),
-                FileName = data.file_name,
-                MimeType = data.mime_type,
-                FileSize = data.file_size
+                FileId = data.Get<string>("file_id"),
+                Thumb = PhotoSizeResponse.Parse(data.GetJson("thumb")),
+                FileName = data.Get<string>("file_name"),
+                MimeType = data.Get<string>("mime_type"),
+                FileSize = data.Get<int?>("file_size")
             };
         }
     }

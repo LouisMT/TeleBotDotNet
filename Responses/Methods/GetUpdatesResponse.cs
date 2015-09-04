@@ -8,7 +8,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public List<UpdateResponse> Result { get; set; }
 
-        internal static GetUpdatesResponse Parse(dynamic data)
+        internal static GetUpdatesResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -17,13 +17,13 @@ namespace TeleBotDotNet.Responses.Methods
 
             var getUpdatesResponse = new GetUpdatesResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description,
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description"),
                 Result = new List<UpdateResponse>()
             };
 
-            foreach (var result in data.result)
+            foreach (var result in data.GetJsonList("result"))
             {
                 getUpdatesResponse.Result.Add(UpdateResponse.Parse(result));
             }

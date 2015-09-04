@@ -7,19 +7,19 @@
         public int Height { get; set; }
         public int? FileSize { get; set; }
 
-        internal static PhotoSizeResponse Parse(dynamic data)
+        internal static PhotoSizeResponse Parse(Json data)
         {
-            if (data == null || data.file_id == null || data.width == null || data.height == null)
+            if (data == null || !data.Has("file_id") || data.Has("width") || data.Has("height"))
             {
                 return null;
             }
 
             return new PhotoSizeResponse
             {
-                FileId = data.file_id,
-                Width = data.width,
-                Height = data.height,
-                FileSize = data.file_size
+                FileId = data.Get<string>("file_id"),
+                Width = data.Get<int>("width"),
+                Height = data.Get<int>("height"),
+                FileSize = data.Get<int?>("file_size")
             };
         }
     }

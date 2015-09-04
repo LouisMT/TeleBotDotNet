@@ -4,7 +4,7 @@ namespace TeleBotDotNet.Responses.Methods
 {
     public class SetWebhookResponse : BaseMethodResponse
     {
-        internal static SetWebhookResponse Parse(dynamic data)
+        internal static SetWebhookResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -13,9 +13,9 @@ namespace TeleBotDotNet.Responses.Methods
 
             return new SetWebhookResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description")
             };
         }
     }

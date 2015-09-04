@@ -8,50 +8,42 @@ namespace TeleBotDotNet.Http
     {
         internal void Add(string key, string value)
         {
-            if (!string.IsNullOrEmpty(value))
+            Add(new HttpParameter
             {
-                Add(new HttpParameter
-                {
-                    Key = key,
-                    Value = value
-                });
-            }
+                Key = key,
+                Value = !string.IsNullOrEmpty(value) ?
+                    value : string.Empty
+            });
         }
 
         internal void Add(string key, bool? value)
         {
-            if (value.HasValue)
+            Add(new HttpParameter
             {
-                Add(new HttpParameter
-                {
-                    Key = key,
-                    Value = value.Value ? "1" : "0"
-                });
-            }
+                Key = key,
+                Value = value.HasValue && value.Value ?
+                    "1" : "0"
+            });
         }
 
         internal void Add(string key, int? value)
         {
-            if (value.HasValue)
+            Add(new HttpParameter
             {
-                Add(new HttpParameter
-                {
-                    Key = key,
-                    Value = Convert.ToString(value.Value)
-                });
-            }
+                Key = key,
+                Value = value.HasValue ?
+                    Convert.ToString(value.Value) : string.Empty
+            });
         }
 
         internal void Add(string key, float? value)
         {
-            if (value.HasValue)
+            Add(new HttpParameter
             {
-                Add(new HttpParameter
-                {
-                    Key = key,
-                    Value = Convert.ToString(value.Value, CultureInfo.InvariantCulture)
-                });
-            }
+                Key = key,
+                Value = value.HasValue ?
+                    Convert.ToString(value.Value, CultureInfo.InvariantCulture) : string.Empty
+            });
         }
     }
 }

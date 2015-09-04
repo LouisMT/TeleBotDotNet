@@ -8,20 +8,20 @@
         public PhotoSizeResponse Thumb { get; set; }
         public int? FileSize { get; set; }
 
-        internal static StickerResponse Parse(dynamic data)
+        internal static StickerResponse Parse(Json data)
         {
-            if (data == null || data.file_id == null || data.width == null || data.height == null || data.thumb == null)
+            if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height") || !data.Has("thumb"))
             {
                 return null;
             }
 
             return new StickerResponse
             {
-                FileId = data.file_id,
-                Width = data.width,
-                Height = data.height,
-                Thumb = PhotoSizeResponse.Parse(data.thumb),
-                FileSize = data.file_size
+                FileId = data.Get<string>("file_id"),
+                Width = data.Get<int>("width"),
+                Height = data.Get<int>("height"),
+                Thumb = PhotoSizeResponse.Parse(data.GetJson("thumb")),
+                FileSize = data.Get<int?>("file_size")
             };
         }
     }

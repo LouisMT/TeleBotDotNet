@@ -4,7 +4,7 @@ namespace TeleBotDotNet.Responses.Methods
 {
     public class SendChatActionResponse : BaseMethodResponse
     {
-        internal static SendChatActionResponse Parse(dynamic data)
+        internal static SendChatActionResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -13,9 +13,9 @@ namespace TeleBotDotNet.Responses.Methods
 
             return new SendChatActionResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description")
             };
         }
     }

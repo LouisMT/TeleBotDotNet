@@ -7,7 +7,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public UserProfilePhotosResponse Result { get; set; }
 
-        internal static GetUserProfilePhotosResponse Parse(dynamic data)
+        internal static GetUserProfilePhotosResponse Parse(Json data)
         {
             if (data == null)
             {
@@ -16,10 +16,10 @@ namespace TeleBotDotNet.Responses.Methods
 
             return new GetUserProfilePhotosResponse
             {
-                Ok = data.ok,
-                ErrorCode = data.error_code,
-                Description = data.description,
-                Result = UserProfilePhotosResponse.Parse(data.result)
+                Ok = data.Get<bool>("ok"),
+                ErrorCode = data.Get<int?>("error_code"),
+                Description = data.Get<string>("description"),
+                Result = UserProfilePhotosResponse.Parse(data.GetJson("result"))
             };
         }
     }

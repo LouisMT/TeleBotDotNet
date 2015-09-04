@@ -5,17 +5,17 @@
         public int UpdateId { get; set; }
         public MessageResponse Message { get; set; }
 
-        internal static UpdateResponse Parse(dynamic data)
+        internal static UpdateResponse Parse(Json data)
         {
-            if (data == null || data.update_id == null)
+            if (data == null || !data.Has("update_id"))
             {
                 return null;
             }
 
             return new UpdateResponse
             {
-                UpdateId = data.update_id,
-                Message = MessageResponse.Parse(data.message)
+                UpdateId = data.Get<int>("update_id"),
+                Message = MessageResponse.Parse(data.GetJson("message"))
             };
         }
     }

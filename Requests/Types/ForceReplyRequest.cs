@@ -14,11 +14,11 @@ namespace TeleBotDotNet.Requests.Types
 
         internal override void Parse(HttpData httpData, string key)
         {
-            httpData.Parameters.Add(key, new
+            httpData.Parameters.Add(key, Json.Serialize(new
             {
                 force_reply = ForceReply,
                 selective = Selective
-            }.ToJson());
+            }));
         }
     }
 }
