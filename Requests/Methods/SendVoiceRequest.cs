@@ -1,21 +1,21 @@
-﻿using TeleBotDotNet.Http;
+﻿using System;
+using TeleBotDotNet.Http;
 using TeleBotDotNet.Requests.Methods.Bases;
 using TeleBotDotNet.Requests.Types;
 
 namespace TeleBotDotNet.Requests.Methods
 {
-    public class SendVideoRequest : BaseMethodRequest
+    public class SendVoiceRequest : BaseMethodRequest
     {
         public int ChatId { get; set; }
-        public InputFileRequest Video { get; set; }
+        public InputFileRequest Voice { get; set; }
         public int? Duration { get; set; }
-        public string Caption { get; set; }
-        public int ReplyToMessageId { get; set; }
+        public int? ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
         internal override string MethodName
         {
-            get { return "sendVideo"; }
+            get { return "sendVoice"; }
         }
 
         internal override HttpData Parse()
@@ -26,14 +26,13 @@ namespace TeleBotDotNet.Requests.Methods
                 {
                     {"chat_id", ChatId},
                     {"duration", Duration},
-                    {"caption", Caption},
                     {"reply_to_message_id", ReplyToMessageId}
                 }
             };
 
-            if (Video != null)
+            if (Voice != null)
             {
-                Video.Parse(httpData, "video");
+                Voice.Parse(httpData, "voice");
             }
             if (ReplyMarkup != null)
             {

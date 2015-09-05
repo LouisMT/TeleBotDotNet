@@ -5,7 +5,7 @@
         public string PhoneNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         internal static ContactResponse Parse(Json data)
         {
@@ -19,7 +19,7 @@
                 PhoneNumber = data.Get<string>("phone_number"),
                 FirstName = data.Get<string>("first_name"),
                 LastName = data.Get<string>("last_name"),
-                UserId = data.Get<string>("user_id")
+                UserId = data.Get<int>("user_id")
             };
         }
     }

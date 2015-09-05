@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Json.cs" />
+    <Compile Include="Requests\Methods\SendVoiceRequest.cs" />
+    <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Http\HttpData.cs" />

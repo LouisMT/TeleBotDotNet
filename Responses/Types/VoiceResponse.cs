@@ -1,27 +1,23 @@
 ﻿namespace TeleBotDotNet.Responses.Types
 {
-    public class AudioResponse
+    public class VoiceResponse
     {
         public string FileId { get; set; }
         public int Duration { get; set; }
-        public string Performer { get; set; }
-        public string Title { get; set; }
         public string MimeType { get; set; }
         public int? FileSize { get; set; }
 
-        internal static AudioResponse Parse(Json data)
+        internal static VoiceResponse Parse(Json data)
         {
             if (data == null || !data.Has("file_id") || !data.Has("duration"))
             {
                 return null;
             }
 
-            return new AudioResponse
+            return new VoiceResponse
             {
                 FileId = data.Get<string>("file_id"),
                 Duration = data.Get<int>("duration"),
-                Performer = data.Get<string>("performer"),
-                Title = data.Get<string>("title"),
                 MimeType = data.Get<string>("mime_type"),
                 FileSize = data.Get<int?>("file_size")
             };

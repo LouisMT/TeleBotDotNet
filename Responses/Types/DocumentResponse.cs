@@ -10,7 +10,7 @@
 
         internal static DocumentResponse Parse(Json data)
         {
-            if (data == null || !data.Has("file_id") || !data.Has("thumb"))
+            if (data == null || !data.Has("file_id"))
             {
                 return null;
             }

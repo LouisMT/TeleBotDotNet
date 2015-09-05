@@ -8,6 +8,9 @@ namespace TeleBotDotNet.Requests.Methods
     {
         public int ChatId { get; set; }
         public InputFileRequest Audio { get; set; }
+        public int? Duration { get; set; }
+        public string Performer { get; set; }
+        public string Title { get; set; }
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
@@ -23,6 +26,9 @@ namespace TeleBotDotNet.Requests.Methods
                 Parameters = new HttpParameterList
                 {
                     {"chat_id", ChatId},
+                    {"duration", Duration},
+                    {"performer", Performer},
+                    {"title", Title},
                     {"reply_to_message_id", ReplyToMessageId}
                 }
             };

@@ -83,6 +83,16 @@ namespace TeleBotDotNet.Responses.Types
         public VideoResponse Video { get; set; }
 
         /// <summary>
+        ///     Optional. Message is a voice message, information about the file
+        /// </summary>
+        public VoiceResponse Voice { get; set; }
+
+        /// <summary>
+        ///     Optional. Caption for the photo or video
+        /// </summary>
+        public string Caption { get; set; }
+
+        /// <summary>
         ///     Optional. Message is a shared contact, information about the contact
         /// </summary>
         public ContactResponse Contact { get; set; }
@@ -138,12 +148,14 @@ namespace TeleBotDotNet.Responses.Types
                 GroupChat = GroupChatResponse.Parse(data.GetJson("chat")),
                 ForwardFrom = UserResponse.Parse(data.GetJson("forward_from")),
                 ForwardDate = data.GetDateTime("forward_date"),
-                ReplyToMessage = MessageResponse.Parse(data.GetJson("reply_to_message")),
+                ReplyToMessage = Parse(data.GetJson("reply_to_message")),
                 Text = data.Get<string>("text"),
                 Audio = AudioResponse.Parse(data.GetJson("audio")),
                 Document = DocumentResponse.Parse(data.GetJson("document")),
                 Sticker = StickerResponse.Parse(data.GetJson("sticker")),
                 Video = VideoResponse.Parse(data.GetJson("video")),
+                Voice = VoiceResponse.Parse(data.GetJson("voice")),
+                Caption = data.Get<string>("caption"),
                 Contact = ContactResponse.Parse(data.GetJson("contact")),
                 Location = LocationResponse.Parse(data.GetJson("location")),
                 NewChatParticipant = UserResponse.Parse(data.GetJson("new_chat_participant")),

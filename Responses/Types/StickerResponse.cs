@@ -10,7 +10,7 @@
 
         internal static StickerResponse Parse(Json data)
         {
-            if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height") || !data.Has("thumb"))
+            if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height"))
             {
                 return null;
             }
