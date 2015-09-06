@@ -17,7 +17,7 @@ namespace TeleBotDotNet.Requests.Methods
             {
                 Parameters = new HttpParameterList
                 {
-                    {"url", Url}
+                    { "url", Url }
                 }
             };
 

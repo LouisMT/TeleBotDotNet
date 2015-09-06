@@ -20,10 +20,10 @@ namespace TeleBotDotNet.Requests.Methods
             {
                 Parameters = new HttpParameterList
                 {
-                    {"chat_id", ChatId},
-                    {"text", Text},
-                    {"disable_web_page_preview", DisableWebPagePreview},
-                    {"reply_to_message_id", ReplyToMessageId}
+                    { "chat_id", ChatId },
+                    { "text", Text },
+                    { "disable_web_page_preview", DisableWebPagePreview },
+                    { "reply_to_message_id", ReplyToMessageId }
                 }
             };
 

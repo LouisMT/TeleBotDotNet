@@ -17,9 +17,9 @@ namespace TeleBotDotNet.Requests.Methods
             {
                 Parameters = new HttpParameterList
                 {
-                    {"chat_id", ChatId},
-                    {"from_chat_id", FromChatId},
-                    {"message_id", MessageId}
+                    { "chat_id", ChatId },
+                    { "from_chat_id", FromChatId },
+                    { "message_id", MessageId }
                 }
             };
         }

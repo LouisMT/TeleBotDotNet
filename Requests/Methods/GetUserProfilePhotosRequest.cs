@@ -17,9 +17,9 @@ namespace TeleBotDotNet.Requests.Methods
             {
                 Parameters = new HttpParameterList
                 {
-                    {"user_id", UserId},
-                    {"offset", Offset},
-                    {"limit", Limit}
+                    { "user_id", UserId },
+                    { "offset", Offset },
+                    { "limit", Limit }
                 }
             };
         }

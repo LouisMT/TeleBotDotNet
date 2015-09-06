@@ -17,9 +17,9 @@ namespace TeleBotDotNet.Requests.Methods
             {
                 Parameters = new HttpParameterList
                 {
-                    {"offset", Offset},
-                    {"limit", Limit},
-                    {"timeout", Timeout}
+                    { "offset", Offset },
+                    { "limit", Limit },
+                    { "timeout", Timeout }
                 }
             };
         }
