@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class AudioResponse
     {
@@ -9,7 +11,7 @@
         public string MimeType { get; private set; }
         public int? FileSize { get; private set; }
 
-        internal static AudioResponse Parse(Json data)
+        internal static AudioResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("file_id") || !data.Has("duration"))
             {

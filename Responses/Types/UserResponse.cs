@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class UserResponse
     {
@@ -22,7 +24,7 @@
         /// </summary>
         public string UserName { get; private set; }
 
-        internal static UserResponse Parse(Json data)
+        internal static UserResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("id") || !data.Has("first_name"))
             {

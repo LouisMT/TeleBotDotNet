@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TeleBotDotNet.Json;
 
 namespace TeleBotDotNet.Responses.Types
 {
@@ -12,7 +13,7 @@ namespace TeleBotDotNet.Responses.Types
         public int TotalCount { get; private set; }
         public List<PhotoSizeResponse> Photos { get; }
 
-        internal static UserProfilePhotosResponse Parse(Json data)
+        internal static UserProfilePhotosResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("total_count") || !data.Has("photos"))
             {

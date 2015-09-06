@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class StickerResponse
     {
@@ -8,7 +10,7 @@
         public PhotoSizeResponse Thumb { get; private set; }
         public int? FileSize { get; private set; }
 
-        internal static StickerResponse Parse(Json data)
+        internal static StickerResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height"))
             {

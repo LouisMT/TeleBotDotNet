@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class GroupChatResponse
     {
@@ -12,7 +14,7 @@
         /// </summary>
         public string Title { get; private set; }
 
-        internal static GroupChatResponse Parse(Json data)
+        internal static GroupChatResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("id") || !data.Has("title"))
             {

@@ -1,10 +1,11 @@
-﻿using TeleBotDotNet.Responses.Methods.Bases;
+﻿using TeleBotDotNet.Json;
+using TeleBotDotNet.Responses.Methods.Bases;
 
 namespace TeleBotDotNet.Responses.Methods
 {
     public class SetWebhookResponse : BaseMethodResponse
     {
-        internal static SetWebhookResponse Parse(Json data)
+        internal static SetWebhookResponse Parse(JsonData data)
         {
             if (data == null)
             {

@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class PhotoSizeResponse
     {
@@ -7,7 +9,7 @@
         public int Height { get; private set; }
         public int? FileSize { get; private set; }
 
-        internal static PhotoSizeResponse Parse(Json data)
+        internal static PhotoSizeResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("file_id") || data.Has("width") || data.Has("height"))
             {

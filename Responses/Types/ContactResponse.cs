@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class ContactResponse
     {
@@ -7,7 +9,7 @@
         public string LastName { get; private set; }
         public int UserId { get; private set; }
 
-        internal static ContactResponse Parse(Json data)
+        internal static ContactResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("phone_number") || !data.Has("first_name"))
             {

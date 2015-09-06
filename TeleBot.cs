@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Text;
+using TeleBotDotNet.Json;
 using TeleBotDotNet.Log;
 using TeleBotDotNet.Requests.Methods;
 using TeleBotDotNet.Requests.Methods.Bases;
@@ -79,14 +80,14 @@ namespace TeleBotDotNet
             }
         }
 
-        private static Json DecodeWebResponse(WebResponse webResponse)
+        private static JsonData DecodeWebResponse(WebResponse webResponse)
         {
             using (webResponse)
             using (var responseStream = webResponse.GetResponseStream())
             using (var stream = new MemoryStream())
             {
                 responseStream?.CopyTo(stream);
-                return Json.Deserialize(Encoding.UTF8.GetString(stream.ToArray()));
+                return JsonData.Deserialize(Encoding.UTF8.GetString(stream.ToArray()));
             }
         }
 
@@ -158,7 +159,7 @@ namespace TeleBotDotNet
 
         public UpdateResponse ConvertWebhookResponse(string json)
         {
-            return UpdateResponse.Parse(Json.Deserialize(json));
+            return UpdateResponse.Parse(JsonData.Deserialize(json));
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class DocumentResponse
     {
@@ -8,7 +10,7 @@
         public string MimeType { get; private set; }
         public int? FileSize { get; private set; }
 
-        internal static DocumentResponse Parse(Json data)
+        internal static DocumentResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("file_id"))
             {

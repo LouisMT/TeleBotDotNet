@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TeleBotDotNet.Http;
+using TeleBotDotNet.Json;
 using TeleBotDotNet.Requests.Types.Bases;
 
 namespace TeleBotDotNet.Requests.Types
@@ -13,7 +14,7 @@ namespace TeleBotDotNet.Requests.Types
 
         internal override void Parse(HttpData httpData, string key)
         {
-            httpData.Parameters.Add(key, Json.Serialize(new
+            httpData.Parameters.Add(key, JsonData.Serialize(new
             {
                 keyboard = Keyboard,
                 resize_keyboard = ResizeKeyboard,

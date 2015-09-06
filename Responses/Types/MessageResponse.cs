@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TeleBotDotNet.Json;
 
 namespace TeleBotDotNet.Responses.Types
 {
@@ -132,7 +133,7 @@ namespace TeleBotDotNet.Responses.Types
         /// </summary>
         public bool? GroupChatCreated { get; private set; }
 
-        internal static MessageResponse Parse(Json data)
+        internal static MessageResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("message_id") || !data.Has("from") || !data.Has("date") || !data.Has("chat"))
             {

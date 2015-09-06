@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
-namespace TeleBotDotNet
+namespace TeleBotDotNet.Json
 {
-    internal class Json
+    internal class JsonData
     {
         private readonly Dictionary<string, object> _dictionary;
 
-        internal Json(Dictionary<string, object> dictionary)
+        internal JsonData(Dictionary<string, object> dictionary)
         {
             _dictionary = dictionary;
         }
@@ -24,13 +24,13 @@ namespace TeleBotDotNet
             return default(T);
         }
 
-        internal Json GetJson(string name)
+        internal JsonData GetJson(string name)
         {
             return _dictionary.ContainsKey(name) ?
-                new Json((Dictionary<string, object>)_dictionary[name]) : null;
+                new JsonData((Dictionary<string, object>)_dictionary[name]) : null;
         }
 
-        internal IEnumerable<Json> GetJsonList(string name)
+        internal IEnumerable<JsonData> GetJsonList(string name)
         {
             if (!_dictionary.ContainsKey(name))
             {
@@ -40,7 +40,7 @@ namespace TeleBotDotNet
             var arrayList = (ArrayList)_dictionary[name];
             foreach (var item in arrayList)
             {
-                yield return new Json((Dictionary<string, object>)item);
+                yield return new JsonData((Dictionary<string, object>)item);
             }
         }
 
@@ -63,10 +63,10 @@ namespace TeleBotDotNet
             return javaScriptSerializer.Serialize(input);
         }
 
-        internal static Json Deserialize(string input)
+        internal static JsonData Deserialize(string input)
         {
             var javaScriptSerializer = new JavaScriptSerializer();
-            return new Json(javaScriptSerializer.Deserialize<Dictionary<string, object>>(input));
+            return new JsonData(javaScriptSerializer.Deserialize<Dictionary<string, object>>(input));
         }
     }
 }

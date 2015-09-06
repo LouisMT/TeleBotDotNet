@@ -36,7 +36,7 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Json.cs" />
+    <Compile Include="Json\Json.cs" />
     <Compile Include="Requests\Methods\SendVoiceRequest.cs" />
     <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />

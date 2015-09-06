@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Responses.Methods.Bases;
+﻿using TeleBotDotNet.Json;
+using TeleBotDotNet.Responses.Methods.Bases;
 using TeleBotDotNet.Responses.Types;
 
 namespace TeleBotDotNet.Responses.Methods
@@ -7,7 +8,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public UserResponse Result { get; private set; }
 
-        internal static GetMeResponse Parse(Json data)
+        internal static GetMeResponse Parse(JsonData data)
         {
             if (data == null)
             {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TeleBotDotNet.Json;
 using TeleBotDotNet.Responses.Methods.Bases;
 using TeleBotDotNet.Responses.Types;
 
@@ -8,7 +9,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public List<UpdateResponse> Result { get; private set; }
 
-        internal static GetUpdatesResponse Parse(Json data)
+        internal static GetUpdatesResponse Parse(JsonData data)
         {
             if (data == null)
             {

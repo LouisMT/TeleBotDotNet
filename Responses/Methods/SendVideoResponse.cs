@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Responses.Methods.Bases;
+﻿using TeleBotDotNet.Json;
+using TeleBotDotNet.Responses.Methods.Bases;
 using TeleBotDotNet.Responses.Types;
 
 namespace TeleBotDotNet.Responses.Methods
@@ -7,7 +8,7 @@ namespace TeleBotDotNet.Responses.Methods
     {
         public MessageResponse Result { get; private set; }
 
-        internal static SendVideoResponse Parse(Json data)
+        internal static SendVideoResponse Parse(JsonData data)
         {
             if (data == null)
             {

@@ -1,10 +1,11 @@
-﻿using TeleBotDotNet.Responses.Methods.Bases;
+﻿using TeleBotDotNet.Json;
+using TeleBotDotNet.Responses.Methods.Bases;
 
 namespace TeleBotDotNet.Responses.Methods
 {
     public class SendChatActionResponse : BaseMethodResponse
     {
-        internal static SendChatActionResponse Parse(Json data)
+        internal static SendChatActionResponse Parse(JsonData data)
         {
             if (data == null)
             {

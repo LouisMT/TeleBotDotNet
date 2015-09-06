@@ -1,4 +1,6 @@
-﻿namespace TeleBotDotNet.Responses.Types
+﻿using TeleBotDotNet.Json;
+
+namespace TeleBotDotNet.Responses.Types
 {
     public class VideoResponse
     {
@@ -10,7 +12,7 @@
         public string MimeType { get; private set; }
         public int? FileSize { get; private set; }
 
-        internal static VideoResponse Parse(Json data)
+        internal static VideoResponse Parse(JsonData data)
         {
             if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height") || !data.Has("duration"))
             {
