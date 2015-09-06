@@ -2,12 +2,12 @@
 {
     public class AudioResponse
     {
-        public string FileId { get; set; }
-        public int Duration { get; set; }
-        public string Performer { get; set; }
-        public string Title { get; set; }
-        public string MimeType { get; set; }
-        public int? FileSize { get; set; }
+        public string FileId { get; private set; }
+        public int Duration { get; private set; }
+        public string Performer { get; private set; }
+        public string Title { get; private set; }
+        public string MimeType { get; private set; }
+        public int? FileSize { get; private set; }
 
         internal static AudioResponse Parse(Json data)
         {

@@ -35,7 +35,7 @@ namespace TeleBotDotNet
 
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
-            var webRequest = WebRequest.Create(string.Format("{0}/bot{1}/{2}", ApiUrl, ApiToken, request.MethodName));
+            var webRequest = WebRequest.Create($"{ApiUrl}/bot{ApiToken}/{request.MethodName}");
             webRequest.Method = "POST";
             var boundary = "---------------------------" +
                            DateTime.Now.Ticks.ToString("x", NumberFormatInfo.InvariantInfo);
@@ -51,9 +51,7 @@ namespace TeleBotDotNet
                 {
                     var buffer = Encoding.ASCII.GetBytes(boundary + Environment.NewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer =
-                        Encoding.ASCII.GetBytes(string.Format("Content-Disposition: form-data; name=\"{0}\"{1}{1}",
-                            parameter.Key, Environment.NewLine));
+                    buffer = Encoding.ASCII.GetBytes($"Content-Disposition: form-data; name=\"{parameter.Key}\"{Environment.NewLine}{Environment.NewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
                     buffer = Encoding.UTF8.GetBytes(parameter.Value + Environment.NewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
@@ -64,14 +62,9 @@ namespace TeleBotDotNet
                 {
                     var buffer = Encoding.ASCII.GetBytes(boundary + Environment.NewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer =
-                        Encoding.UTF8.GetBytes(
-                            string.Format("Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"{2}", file.Key,
-                                file.FileName, Environment.NewLine));
+                    buffer = Encoding.UTF8.GetBytes($"Content-Disposition: form-data; name=\"{file.Key}\"; filename=\"{file.FileName}\"{Environment.NewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer =
-                        Encoding.ASCII.GetBytes(string.Format("Content-Type: {0}{1}{1}", file.ContentType,
-                            Environment.NewLine));
+                    buffer = Encoding.ASCII.GetBytes($"Content-Type: {file.ContentType}{Environment.NewLine}{Environment.NewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
                     new MemoryStream(file.File).CopyTo(requestStream);
                     buffer = Encoding.ASCII.GetBytes(Environment.NewLine);

@@ -14,123 +14,123 @@ namespace TeleBotDotNet.Responses.Types
         /// <summary>
         ///     Unique message identifier
         /// </summary>
-        public int MessageId { get; set; }
+        public int MessageId { get; private set; }
 
         /// <summary>
         ///     Sender
         /// </summary>
-        public UserResponse From { get; set; }
+        public UserResponse From { get; private set; }
 
         /// <summary>
         ///     Date the message was sent
         /// </summary>
-        public DateTime? Date { get; set; }
+        public DateTime? Date { get; private set; }
 
         /// <summary>
         ///     Conversation the message belongs to
         /// </summary>
-        public UserResponse UserChat { get; set; }
+        public UserResponse UserChat { get; private set; }
 
         /// <summary>
         ///     Conversation the message belongs to
         /// </summary>
-        public GroupChatResponse GroupChat { get; set; }
+        public GroupChatResponse GroupChat { get; private set; }
 
         /// <summary>
         ///     Optional. For forwarded messages, sender of the original message
         /// </summary>
-        public UserResponse ForwardFrom { get; set; }
+        public UserResponse ForwardFrom { get; private set; }
 
         /// <summary>
         ///     Optional. For forwarded messages, date the original message was sent
         /// </summary>
-        public DateTime? ForwardDate { get; set; }
+        public DateTime? ForwardDate { get; private set; }
 
         /// <summary>
         ///     Optional. For replies, the original message. Note that the Message object in this field will not contain further
         ///     reply_to_message fields even if it itself is a reply.
         /// </summary>
-        public MessageResponse ReplyToMessage { get; set; }
+        public MessageResponse ReplyToMessage { get; private set; }
 
         /// <summary>
         ///     Optional. For text messages, the actual UTF-8 text of the message
         /// </summary>
-        public string Text { get; set; }
+        public string Text { get; private set; }
 
         /// <summary>
         ///     Optional. Message is an audio file, information about the file
         /// </summary>
-        public AudioResponse Audio { get; set; }
+        public AudioResponse Audio { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a general file, information about the file
         /// </summary>
-        public DocumentResponse Document { get; set; }
+        public DocumentResponse Document { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a photo, available sizes of the photo
         /// </summary>
-        public List<PhotoSizeResponse> Photo { get; set; }
+        public List<PhotoSizeResponse> Photo { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a sticker, information about the sticker
         /// </summary>
-        public StickerResponse Sticker { get; set; }
+        public StickerResponse Sticker { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a video, information about the video
         /// </summary>
-        public VideoResponse Video { get; set; }
+        public VideoResponse Video { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a voice message, information about the file
         /// </summary>
-        public VoiceResponse Voice { get; set; }
+        public VoiceResponse Voice { get; private set; }
 
         /// <summary>
         ///     Optional. Caption for the photo or video
         /// </summary>
-        public string Caption { get; set; }
+        public string Caption { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a shared contact, information about the contact
         /// </summary>
-        public ContactResponse Contact { get; set; }
+        public ContactResponse Contact { get; private set; }
 
         /// <summary>
         ///     Optional. Message is a shared location, information about the location
         /// </summary>
-        public LocationResponse Location { get; set; }
+        public LocationResponse Location { get; private set; }
 
         /// <summary>
         ///     Optional. A new member was added to the group, information about them (this member may be bot itself)
         /// </summary>
-        public UserResponse NewChatParticipant { get; set; }
+        public UserResponse NewChatParticipant { get; private set; }
 
         /// <summary>
         ///     Optional. A member was removed from the group, information about them (this member may be bot itself)
         /// </summary>
-        public UserResponse LeftChatParticipant { get; set; }
+        public UserResponse LeftChatParticipant { get; private set; }
 
         /// <summary>
         ///     Optional. A group title was changed to this value
         /// </summary>
-        public string NewChatTitle { get; set; }
+        public string NewChatTitle { get; private set; }
 
         /// <summary>
         ///     Optional. A group photo was change to this value
         /// </summary>
-        public List<PhotoSizeResponse> NewChatPhoto { get; set; }
+        public List<PhotoSizeResponse> NewChatPhoto { get; private set; }
 
         /// <summary>
         ///     Optional. Informs that the group photo was deleted
         /// </summary>
-        public bool? DeleteChatPhoto { get; set; }
+        public bool? DeleteChatPhoto { get; private set; }
 
         /// <summary>
         ///     Optional. Informs that the group has been created
         /// </summary>
-        public bool? GroupChatCreated { get; set; }
+        public bool? GroupChatCreated { get; private set; }
 
         internal static MessageResponse Parse(Json data)
         {

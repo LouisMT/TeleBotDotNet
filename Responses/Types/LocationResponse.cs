@@ -2,8 +2,8 @@
 {
     public class LocationResponse
     {
-        public float Longitude { get; set; }
-        public float Latitude { get; set; }
+        public float Longitude { get; private set; }
+        public float Latitude { get; private set; }
 
         internal static LocationResponse Parse(Json data)
         {

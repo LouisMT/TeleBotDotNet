@@ -11,7 +11,7 @@ namespace TeleBotDotNet.Http
             {
                 Key = key,
                 File = file,
-                FileName = string.Format("{0}.{1}", Guid.NewGuid(), extension),
+                FileName = $"{Guid.NewGuid()}.{extension}",
                 ContentType = contentType
             });
         }

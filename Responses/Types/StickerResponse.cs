@@ -2,11 +2,11 @@
 {
     public class StickerResponse
     {
-        public string FileId { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public PhotoSizeResponse Thumb { get; set; }
-        public int? FileSize { get; set; }
+        public string FileId { get; private set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+        public PhotoSizeResponse Thumb { get; private set; }
+        public int? FileSize { get; private set; }
 
         internal static StickerResponse Parse(Json data)
         {

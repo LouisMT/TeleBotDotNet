@@ -5,10 +5,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class GetMeRequest : BaseMethodRequest
     {
-        internal override string MethodName
-        {
-            get { return "getMe"; }
-        }
+        internal override string MethodName { get; } = "getMe";
 
         internal override HttpData Parse()
         {

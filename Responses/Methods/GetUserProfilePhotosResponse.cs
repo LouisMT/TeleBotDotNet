@@ -5,7 +5,7 @@ namespace TeleBotDotNet.Responses.Methods
 {
     public class GetUserProfilePhotosResponse : BaseMethodResponse
     {
-        public UserProfilePhotosResponse Result { get; set; }
+        public UserProfilePhotosResponse Result { get; private set; }
 
         internal static GetUserProfilePhotosResponse Parse(Json data)
         {

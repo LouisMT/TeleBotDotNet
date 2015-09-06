@@ -2,8 +2,8 @@
 {
     public class UpdateResponse
     {
-        public int UpdateId { get; set; }
-        public MessageResponse Message { get; set; }
+        public int UpdateId { get; private set; }
+        public MessageResponse Message { get; private set; }
 
         internal static UpdateResponse Parse(Json data)
         {

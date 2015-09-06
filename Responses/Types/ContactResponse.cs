@@ -2,10 +2,10 @@
 {
     public class ContactResponse
     {
-        public string PhoneNumber { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int UserId { get; set; }
+        public string PhoneNumber { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public int UserId { get; private set; }
 
         internal static ContactResponse Parse(Json data)
         {

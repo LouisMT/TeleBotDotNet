@@ -2,10 +2,10 @@
 {
     public class VoiceResponse
     {
-        public string FileId { get; set; }
-        public int Duration { get; set; }
-        public string MimeType { get; set; }
-        public int? FileSize { get; set; }
+        public string FileId { get; private set; }
+        public int Duration { get; private set; }
+        public string MimeType { get; private set; }
+        public int? FileSize { get; private set; }
 
         internal static VoiceResponse Parse(Json data)
         {

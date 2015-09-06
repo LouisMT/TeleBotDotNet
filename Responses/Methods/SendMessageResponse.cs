@@ -5,7 +5,7 @@ namespace TeleBotDotNet.Responses.Methods
 {
     public class SendMessageResponse : BaseMethodResponse
     {
-        public MessageResponse Result { get; set; }
+        public MessageResponse Result { get; private set; }
 
         internal static SendMessageResponse Parse(Json data)
         {

@@ -9,10 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public string Url { get; set; }
         public InputFileRequest Certificate { get; set; }
 
-        internal override string MethodName
-        {
-            get { return "setWebhook"; }
-        }
+        internal override string MethodName { get; } = "setWebhook";
 
         internal override HttpData Parse()
         {

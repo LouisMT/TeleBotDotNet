@@ -9,8 +9,8 @@ namespace TeleBotDotNet.Responses.Types
             Photos = new List<PhotoSizeResponse>();
         }
 
-        public int TotalCount { get; set; }
-        public List<PhotoSizeResponse> Photos { get; set; }
+        public int TotalCount { get; private set; }
+        public List<PhotoSizeResponse> Photos { get; private set; }
 
         internal static UserProfilePhotosResponse Parse(Json data)
         {

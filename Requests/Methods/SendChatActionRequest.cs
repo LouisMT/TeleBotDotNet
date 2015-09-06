@@ -9,10 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ChatId { get; set; }
         public ActionRequest Action { get; set; }
 
-        internal override string MethodName
-        {
-            get { return "sendChatAction"; }
-        }
+        internal override string MethodName { get; } = "sendChatAction";
 
         internal override HttpData Parse()
         {

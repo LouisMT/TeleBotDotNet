@@ -9,10 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int? Limit { get; set; }
         public int? Timeout { get; set; }
 
-        internal override string MethodName
-        {
-            get { return "getUpdates"; }
-        }
+        internal override string MethodName { get; } = "getUpdates";
 
         internal override HttpData Parse()
         {

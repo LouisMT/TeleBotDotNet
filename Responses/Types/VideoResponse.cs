@@ -2,13 +2,13 @@
 {
     public class VideoResponse
     {
-        public int FileId { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public int Duration { get; set; }
-        public PhotoSizeResponse Thumb { get; set; }
-        public string MimeType { get; set; }
-        public int? FileSize { get; set; }
+        public int FileId { get; private set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+        public int Duration { get; private set; }
+        public PhotoSizeResponse Thumb { get; private set; }
+        public string MimeType { get; private set; }
+        public int? FileSize { get; private set; }
 
         internal static VideoResponse Parse(Json data)
         {

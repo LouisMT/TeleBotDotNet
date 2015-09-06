@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Responses.Methods
 {
     public class GetUpdatesResponse : BaseMethodResponse
     {
-        public List<UpdateResponse> Result { get; set; }
+        public List<UpdateResponse> Result { get; private set; }
 
         internal static GetUpdatesResponse Parse(Json data)
         {

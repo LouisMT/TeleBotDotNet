@@ -2,8 +2,8 @@
 {
     public class BaseMethodResponse
     {
-        public bool Ok { get; set; }
-        public int? ErrorCode { get; set; }
-        public string Description { get; set; }
+        public bool Ok { get; protected set; }
+        public int? ErrorCode { get; protected set; }
+        public string Description { get; protected set; }
     }
 }

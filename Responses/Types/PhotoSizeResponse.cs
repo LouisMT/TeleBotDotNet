@@ -2,10 +2,10 @@
 {
     public class PhotoSizeResponse
     {
-        public string FileId { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public int? FileSize { get; set; }
+        public string FileId { get; private set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+        public int? FileSize { get; private set; }
 
         internal static PhotoSizeResponse Parse(Json data)
         {
