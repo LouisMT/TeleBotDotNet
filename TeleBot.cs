@@ -32,8 +32,7 @@ namespace TeleBotDotNet
         {
             var webRequest = WebRequest.Create($"{ApiUrl}/bot{ApiToken}/{request.MethodName}");
             webRequest.Method = "POST";
-            var boundary = "---------------------------" +
-                           DateTime.Now.Ticks.ToString("x", NumberFormatInfo.InvariantInfo);
+            var boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x", NumberFormatInfo.InvariantInfo);
             webRequest.ContentType = "multipart/form-data; boundary=" + boundary;
             boundary = "--" + boundary;
 

@@ -11,11 +11,10 @@ var teleBot = new TeleBot("YOUR_API_KEY_HERE", false);
 
 teleBot.SendMessage(new SendMessageRequest
 {
-    ChatId = updateResponse.Message.UserChat == null ?
-        updateResponse.Message.GroupChat.Id : updateResponse.Message.UserChat.Id,
+    ChatId = updateResponse.Message?.UserChat.Id ?? updateResponse.Message.GroupChat.Id,
     Text = "This is a test.",
     ReplyToMessageId = updateResponse.Message.MessageId
 });
 ```
 
-For more see [Naxiz/TeleBotDotNetExamples](https://github.com/Naxiz/TeleBotDotNetExamples).
+For more see [Naxiz/TeleBotDotNetExamples](https://git.u5r.nl/Louis/TeleBotDotNetExamples).
