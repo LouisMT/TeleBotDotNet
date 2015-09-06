@@ -16,9 +16,8 @@ namespace TeleBotDotNet.Requests.Types
         private ForceReplyRequest _replyMarkupForceReply;
         private ReplyKeyboardHideRequest _replyMarkupReplyKeyboardHide;
         private ReplyKeyboardMarkupRequest _replyMarkupReplyKeyboardMarkup;
-        private ReplyMarkupTypes _replyMarkupType = ReplyMarkupTypes.None;
 
-        public ReplyMarkupTypes ReplyMarkupType => _replyMarkupType;
+        public ReplyMarkupTypes ReplyMarkupType { get; private set; } = ReplyMarkupTypes.None;
 
         public ReplyKeyboardMarkupRequest ReplyMarkupReplyKeyboardMarkup
         {
@@ -29,7 +28,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = null;
                 _replyMarkupForceReply = null;
 
-                _replyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardMarkup;
+                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardMarkup;
             }
         }
 
@@ -42,7 +41,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = value;
                 _replyMarkupForceReply = null;
 
-                _replyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardHide;
+                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardHide;
             }
         }
 
@@ -55,7 +54,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = null;
                 _replyMarkupForceReply = value;
 
-                _replyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ForceReply;
+                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ForceReply;
             }
         }
 

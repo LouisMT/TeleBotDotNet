@@ -26,34 +26,28 @@ namespace TeleBotDotNet
 
         internal Json GetJson(string name)
         {
-            if (_dictionary.ContainsKey(name))
-            {
-                return new Json((Dictionary<string, object>)_dictionary[name]);
-            }
-
-            return null;
+            return _dictionary.ContainsKey(name) ?
+                new Json((Dictionary<string, object>)_dictionary[name]) : null;
         }
 
         internal IEnumerable<Json> GetJsonList(string name)
         {
-            if (_dictionary.ContainsKey(name))
+            if (!_dictionary.ContainsKey(name))
             {
-                var arrayList = (ArrayList)_dictionary[name];
-                foreach (var item in arrayList)
-                {
-                    yield return new Json((Dictionary<string, object>)item);
-                }
+                yield break;
+            }
+
+            var arrayList = (ArrayList)_dictionary[name];
+            foreach (var item in arrayList)
+            {
+                yield return new Json((Dictionary<string, object>)item);
             }
         }
 
         internal DateTime? GetDateTime(string name)
         {
-            if (_dictionary.ContainsKey(name))
-            {
-                return ((int?)_dictionary[name]).ToDateTime();
-            }
-
-            return null;
+            return _dictionary.ContainsKey(name) ?
+                ((int?)_dictionary[name]).ToDateTime() : null;
         }
 
         internal bool Has(string name)

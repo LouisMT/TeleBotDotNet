@@ -79,7 +79,7 @@ namespace TeleBotDotNet
             }
         }
 
-        private Json DecodeWebResponse(WebResponse webResponse)
+        private static Json DecodeWebResponse(WebResponse webResponse)
         {
             using (webResponse)
             using (var responseStream = webResponse.GetResponseStream())
