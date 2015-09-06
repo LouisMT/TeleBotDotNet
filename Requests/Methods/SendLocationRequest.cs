@@ -12,7 +12,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendLocation";
+        internal override string MethodName => "sendLocation";
 
         internal override HttpData Parse()
         {
@@ -27,10 +27,7 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }

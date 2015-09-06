@@ -9,7 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int FromChatId { get; set; }
         public int MessageId { get; set; }
 
-        internal override string MethodName { get; } = "forwardMessage";
+        internal override string MethodName => "forwardMessage";
 
         internal override HttpData Parse()
         {

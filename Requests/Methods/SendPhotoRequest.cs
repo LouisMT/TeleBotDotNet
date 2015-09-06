@@ -12,7 +12,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendPhoto";
+        internal override string MethodName => "sendPhoto";
 
         internal override HttpData Parse()
         {
@@ -26,14 +26,8 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (Photo != null)
-            {
-                Photo.Parse(httpData, "photo");
-            }
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            Photo?.Parse(httpData, "photo");
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }

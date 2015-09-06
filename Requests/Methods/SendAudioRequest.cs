@@ -14,7 +14,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendAudio";
+        internal override string MethodName => "sendAudio";
 
         internal override HttpData Parse()
         {
@@ -30,14 +30,8 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (Audio != null)
-            {
-                Audio.Parse(httpData, "audio");
-            }
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            Audio?.Parse(httpData, "audio");
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }

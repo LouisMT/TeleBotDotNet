@@ -7,7 +7,7 @@ namespace TeleBotDotNet
 {
     internal class Json
     {
-        private Dictionary<string, object> _dictionary;
+        private readonly Dictionary<string, object> _dictionary;
 
         internal Json(Dictionary<string, object> dictionary)
         {
@@ -44,8 +44,6 @@ namespace TeleBotDotNet
                     yield return new Json((Dictionary<string, object>)item);
                 }
             }
-
-            yield break;
         }
 
         internal DateTime? GetDateTime(string name)
@@ -63,13 +61,7 @@ namespace TeleBotDotNet
             return _dictionary.ContainsKey(name);
         }
 
-        internal int Count
-        {
-            get
-            {
-                return _dictionary.Count;
-            }
-        }
+        internal int Count => _dictionary.Count;
 
         internal static string Serialize(object input)
         {

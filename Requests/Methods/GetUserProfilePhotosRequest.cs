@@ -9,7 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int Offset { get; set; }
         public int Limit { get; set; }
 
-        internal override string MethodName { get; } = "getUserProfilePhotos";
+        internal override string MethodName => "getUserProfilePhotos";
 
         internal override HttpData Parse()
         {

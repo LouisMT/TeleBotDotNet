@@ -1,5 +1,4 @@
-﻿using System;
-using TeleBotDotNet.Http;
+﻿using TeleBotDotNet.Http;
 using TeleBotDotNet.Requests.Methods.Bases;
 using TeleBotDotNet.Requests.Types;
 
@@ -13,7 +12,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int? ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendVoice";
+        internal override string MethodName => "sendVoice";
 
         internal override HttpData Parse()
         {
@@ -27,14 +26,8 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (Voice != null)
-            {
-                Voice.Parse(httpData, "voice");
-            }
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            Voice?.Parse(httpData, "voice");
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }

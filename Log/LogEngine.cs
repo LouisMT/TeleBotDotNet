@@ -9,10 +9,7 @@ namespace TeleBotDotNet.Log
         private readonly List<LogItem> _logItems = new List<LogItem>();
         public bool Enabled { get; set; }
 
-        public ReadOnlyCollection<LogItem> LogItems
-        {
-            get { return _logItems.AsReadOnly(); }
-        }
+        public ReadOnlyCollection<LogItem> LogItems => _logItems.AsReadOnly();
 
         internal void Info(string method, string message)
         {

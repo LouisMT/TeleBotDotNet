@@ -21,17 +21,11 @@ namespace TeleBotDotNet
             Log.Enabled = enableLog;
         }
 
-        public LogEngine Log
-        {
-            get { return _log ?? (_log = new LogEngine()); }
-        }
+        public LogEngine Log => _log ?? (_log = new LogEngine());
 
-        private static string ApiUrl
-        {
-            get { return "https://api.telegram.org"; }
-        }
+        private static string ApiUrl => "https://api.telegram.org";
 
-        private string ApiToken { get; set; }
+        private string ApiToken { get; }
 
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
@@ -91,10 +85,7 @@ namespace TeleBotDotNet
             using (var responseStream = webResponse.GetResponseStream())
             using (var stream = new MemoryStream())
             {
-                if (responseStream != null)
-                {
-                    responseStream.CopyTo(stream);
-                }
+                responseStream?.CopyTo(stream);
                 return Json.Deserialize(Encoding.UTF8.GetString(stream.ToArray()));
             }
         }

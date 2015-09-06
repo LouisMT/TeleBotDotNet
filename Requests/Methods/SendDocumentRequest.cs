@@ -11,7 +11,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendDocument";
+        internal override string MethodName => "sendDocument";
 
         internal override HttpData Parse()
         {
@@ -24,14 +24,8 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (Document != null)
-            {
-                Document.Parse(httpData, "document");
-            }
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            Document?.Parse(httpData, "document");
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }

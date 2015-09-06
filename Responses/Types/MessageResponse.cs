@@ -70,7 +70,7 @@ namespace TeleBotDotNet.Responses.Types
         /// <summary>
         ///     Optional. Message is a photo, available sizes of the photo
         /// </summary>
-        public List<PhotoSizeResponse> Photo { get; private set; }
+        public List<PhotoSizeResponse> Photo { get; }
 
         /// <summary>
         ///     Optional. Message is a sticker, information about the sticker
@@ -120,7 +120,7 @@ namespace TeleBotDotNet.Responses.Types
         /// <summary>
         ///     Optional. A group photo was change to this value
         /// </summary>
-        public List<PhotoSizeResponse> NewChatPhoto { get; private set; }
+        public List<PhotoSizeResponse> NewChatPhoto { get; }
 
         /// <summary>
         ///     Optional. Informs that the group photo was deleted

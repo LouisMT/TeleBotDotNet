@@ -5,10 +5,7 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class ForceReplyRequest : BaseTypeRequest
     {
-        public bool ForceReply
-        {
-            get { return true; }
-        }
+        public bool ForceReply => true;
 
         public bool Selective { get; set; }
 

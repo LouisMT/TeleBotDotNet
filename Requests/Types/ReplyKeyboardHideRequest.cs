@@ -5,10 +5,7 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class ReplyKeyboardHideRequest : BaseTypeRequest
     {
-        public bool HideKeyboard
-        {
-            get { return true; }
-        }
+        public bool HideKeyboard => true;
 
         public bool Selective { get; set; }
 

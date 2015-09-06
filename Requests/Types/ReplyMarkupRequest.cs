@@ -18,10 +18,7 @@ namespace TeleBotDotNet.Requests.Types
         private ReplyKeyboardMarkupRequest _replyMarkupReplyKeyboardMarkup;
         private ReplyMarkupTypes _replyMarkupType = ReplyMarkupTypes.None;
 
-        public ReplyMarkupTypes ReplyMarkupType
-        {
-            get { return _replyMarkupType; }
-        }
+        public ReplyMarkupTypes ReplyMarkupType => _replyMarkupType;
 
         public ReplyKeyboardMarkupRequest ReplyMarkupReplyKeyboardMarkup
         {

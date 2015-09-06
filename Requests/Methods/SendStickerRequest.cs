@@ -11,7 +11,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
-        internal override string MethodName { get; } = "sendSticker";
+        internal override string MethodName => "sendSticker";
 
         internal override HttpData Parse()
         {
@@ -24,14 +24,8 @@ namespace TeleBotDotNet.Requests.Methods
                 }
             };
 
-            if (Sticker != null)
-            {
-                Sticker.Parse(httpData, "sticker");
-            }
-            if (ReplyMarkup != null)
-            {
-                ReplyMarkup.Parse(httpData, "reply_markup");
-            }
+            Sticker?.Parse(httpData, "sticker");
+            ReplyMarkup?.Parse(httpData, "reply_markup");
 
             return httpData;
         }
