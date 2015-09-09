@@ -17,4 +17,4 @@ teleBot.SendMessage(new SendMessageRequest
 });
 ```
 
-For more see [Naxiz/TeleBotDotNetExamples](https://git.u5r.nl/Louis/TeleBotDotNetExamples).
+For more see [Naxiz/TeleBotDotNetExamples](https://github.com/Naxiz/TeleBotDotNetExamples).
