@@ -1,6 +1,6 @@
 # TeleBotDotNet
 
-TeleBotDotNet is a Telegram Bot API for the .NET Framework. It is written in C# and fully object-oriented.
+TeleBotDotNet is a Telegram Bot API for the .NET Framework. It is written in C# and is fully object-oriented.
 
 # Example
 
