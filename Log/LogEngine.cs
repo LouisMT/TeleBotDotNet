@@ -11,6 +11,11 @@ namespace TeleBotDotNet.Log
 
         public ReadOnlyCollection<LogItem> LogItems => _logItems.AsReadOnly();
 
+        internal void Info(string method)
+        {
+            Info(method, "Entering method");
+        }
+
         internal void Info(string method, string message)
         {
             Add(method, message, LogType.Info);
