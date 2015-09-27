@@ -14,6 +14,7 @@ namespace TeleBotDotNet
 {
     /// <summary>
     /// API implementation of September 18, 2015.
+    /// For documentation, please see https://core.telegram.org/bots/api.
     /// </summary>
     public class TeleBot
     {
@@ -183,6 +184,9 @@ namespace TeleBotDotNet
             return GetFileResponse.Parse(ExecuteAction(getFileRequest));
         }
 
+        /// <summary>
+        /// Download a file using a <see cref="GetFileResponse"/> object.
+        /// </summary>
         public byte[] DownloadFile(GetFileResponse getFileResponse)
         {
             Log.Info(nameof(DownloadFile));
