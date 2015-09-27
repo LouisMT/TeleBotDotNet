@@ -2,11 +2,6 @@
 
 namespace TeleBotDotNet.Log
 {
-    public enum LogType
-    {
-        Info
-    }
-
     public class LogItem
     {
         public DateTime Date { get; set; }

@@ -5,17 +5,11 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class InputFileRequest : BaseTypeRequest
     {
-        public enum InputFileTypes
-        {
-            String,
-            File
-        }
-
         private string _contentType;
         private byte[] _file;
         private string _fileExtension;
         private string _fileId;
-        public InputFileTypes InputFileType { get; private set; }
+        public InputFileType InputFileType { get; private set; }
 
         public string FileId
         {
@@ -27,7 +21,7 @@ namespace TeleBotDotNet.Requests.Types
                 _file = null;
                 _contentType = null;
 
-                InputFileType = InputFileTypes.String;
+                InputFileType = InputFileType.String;
             }
         }
 
@@ -39,7 +33,7 @@ namespace TeleBotDotNet.Requests.Types
                 _fileId = null;
                 _contentType = value;
 
-                InputFileType = InputFileTypes.File;
+                InputFileType = InputFileType.File;
             }
         }
 
@@ -51,7 +45,7 @@ namespace TeleBotDotNet.Requests.Types
                 _fileId = null;
                 _fileExtension = value;
 
-                InputFileType = InputFileTypes.File;
+                InputFileType = InputFileType.File;
             }
         }
 
@@ -63,7 +57,7 @@ namespace TeleBotDotNet.Requests.Types
                 _fileId = null;
                 _file = value;
 
-                InputFileType = InputFileTypes.File;
+                InputFileType = InputFileType.File;
             }
         }
 
@@ -71,11 +65,11 @@ namespace TeleBotDotNet.Requests.Types
         {
             switch (InputFileType)
             {
-                case InputFileTypes.String:
+                case InputFileType.String:
                     httpData.Parameters.Add(key, FileId);
                     break;
 
-                case InputFileTypes.File:
+                case InputFileType.File:
                     httpData.Files.Add(key, FileExtension, File, ContentType);
                     break;
             }

@@ -5,19 +5,11 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class ReplyMarkupRequest : BaseTypeRequest
     {
-        public enum ReplyMarkupTypes
-        {
-            None,
-            ReplyKeyboardMarkup,
-            ReplyKeyboardHide,
-            ForceReply
-        }
-
         private ForceReplyRequest _replyMarkupForceReply;
         private ReplyKeyboardHideRequest _replyMarkupReplyKeyboardHide;
         private ReplyKeyboardMarkupRequest _replyMarkupReplyKeyboardMarkup;
 
-        public ReplyMarkupTypes ReplyMarkupType { get; private set; } = ReplyMarkupTypes.None;
+        public ReplyMarkupType ReplyMarkupType { get; private set; } = ReplyMarkupType.None;
 
         public ReplyKeyboardMarkupRequest ReplyMarkupReplyKeyboardMarkup
         {
@@ -28,7 +20,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = null;
                 _replyMarkupForceReply = null;
 
-                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardMarkup;
+                ReplyMarkupType = value == null ? ReplyMarkupType.None : ReplyMarkupType.ReplyKeyboardMarkup;
             }
         }
 
@@ -41,7 +33,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = value;
                 _replyMarkupForceReply = null;
 
-                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ReplyKeyboardHide;
+                ReplyMarkupType = value == null ? ReplyMarkupType.None : ReplyMarkupType.ReplyKeyboardHide;
             }
         }
 
@@ -54,7 +46,7 @@ namespace TeleBotDotNet.Requests.Types
                 _replyMarkupReplyKeyboardHide = null;
                 _replyMarkupForceReply = value;
 
-                ReplyMarkupType = value == null ? ReplyMarkupTypes.None : ReplyMarkupTypes.ForceReply;
+                ReplyMarkupType = value == null ? ReplyMarkupType.None : ReplyMarkupType.ForceReply;
             }
         }
 
@@ -62,15 +54,15 @@ namespace TeleBotDotNet.Requests.Types
         {
             switch (ReplyMarkupType)
             {
-                case ReplyMarkupTypes.ReplyKeyboardMarkup:
+                case ReplyMarkupType.ReplyKeyboardMarkup:
                     ReplyMarkupReplyKeyboardMarkup.Parse(httpData, key);
                     break;
 
-                case ReplyMarkupTypes.ReplyKeyboardHide:
+                case ReplyMarkupType.ReplyKeyboardHide:
                     ReplyMarkupReplyKeyboardHide.Parse(httpData, key);
                     break;
 
-                case ReplyMarkupTypes.ForceReply:
+                case ReplyMarkupType.ForceReply:
                     ReplyMarkupForceReply.Parse(httpData, key);
                     break;
             }

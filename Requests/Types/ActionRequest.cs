@@ -5,19 +5,7 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class ActionRequest : BaseTypeRequest
     {
-        public enum Actions
-        {
-            Typing,
-            UploadPhoto,
-            RecordVideo,
-            UploadVideo,
-            RecordAudio,
-            UploadAudio,
-            UploadDocument,
-            FindLocation
-        }
-
-        public Actions Action { get; set; }
+        public Action Action { get; set; }
 
         internal override void Parse(HttpData httpData, string key)
         {
@@ -25,35 +13,35 @@ namespace TeleBotDotNet.Requests.Types
 
             switch (Action)
             {
-                case Actions.Typing:
+                case Action.Typing:
                     action = "typing";
                     break;
 
-                case Actions.UploadPhoto:
+                case Action.UploadPhoto:
                     action = "upload_photo";
                     break;
 
-                case Actions.RecordVideo:
+                case Action.RecordVideo:
                     action = "record_video";
                     break;
 
-                case Actions.UploadVideo:
+                case Action.UploadVideo:
                     action = "upload_video";
                     break;
 
-                case Actions.RecordAudio:
+                case Action.RecordAudio:
                     action = "record_audio";
                     break;
 
-                case Actions.UploadAudio:
+                case Action.UploadAudio:
                     action = "upload_audio";
                     break;
 
-                case Actions.UploadDocument:
+                case Action.UploadDocument:
                     action = "upload_document";
                     break;
 
-                case Actions.FindLocation:
+                case Action.FindLocation:
                     action = "find_location";
                     break;
             }
