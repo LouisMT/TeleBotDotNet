@@ -6,8 +6,15 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendMessageRequest : BaseMethodRequest
     {
+        public enum ParseModes
+        {
+            Normal,
+            Markdown
+        }
+
         public int ChatId { get; set; }
         public string Text { get; set; }
+        public ParseModes ParseMode { get; set; }
         public bool DisableWebPagePreview { get; set; }
         public int? ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
@@ -26,6 +33,17 @@ namespace TeleBotDotNet.Requests.Methods
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };
+
+            string parseMode = null;
+
+            switch (ParseMode)
+            {
+                case ParseModes.Markdown:
+                    parseMode = "Markdown";
+                    break;
+            }
+
+            httpData.Parameters.Add("parse_mode", parseMode);
 
             ReplyMarkup?.Parse(httpData, "reply_markup");
 

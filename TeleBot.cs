@@ -12,6 +12,9 @@ using TeleBotDotNet.Responses.Types;
 
 namespace TeleBotDotNet
 {
+    /// <summary>
+    /// API implementation of September 18, 2015.
+    /// </summary>
     public class TeleBot
     {
         private LogEngine _log;
@@ -172,6 +175,34 @@ namespace TeleBotDotNet
         {
             Log.Info(nameof(ConvertWebhookResponse));
             return UpdateResponse.Parse(JsonData.Deserialize(json));
+        }
+
+        public GetFileResponse GetFile(GetFileRequest getFileRequest)
+        {
+            Log.Info(nameof(GetFile));
+            return GetFileResponse.Parse(ExecuteAction(getFileRequest));
+        }
+
+        public byte[] DownloadFile(GetFileResponse getFileResponse)
+        {
+            Log.Info(nameof(DownloadFile));
+
+            if (string.IsNullOrEmpty(getFileResponse?.Result?.FilePath))
+            {
+                return null;
+            }
+
+            using (var client = new WebClient())
+            {
+                try
+                {
+                    return client.DownloadData($"{ApiUrl}/file/bot{ApiToken}/{getFileResponse.Result.FilePath}");
+                }
+                catch
+                {
+                    return null;
+                }
+            }
         }
     }
 }

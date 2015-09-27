@@ -37,7 +37,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Json\Json.cs" />
+    <Compile Include="Requests\Methods\GetFileRequest.cs" />
     <Compile Include="Requests\Methods\SendVoiceRequest.cs" />
+    <Compile Include="Responses\Methods\GetFileResponse.cs" />
+    <Compile Include="Responses\Types\FileResponse.cs" />
     <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />
     <Compile Include="Helpers.cs" />
