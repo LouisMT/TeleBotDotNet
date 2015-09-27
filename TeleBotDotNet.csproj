@@ -38,7 +38,7 @@
   <ItemGroup>
     <Compile Include="Json\Json.cs" />
     <Compile Include="Log\Enums.cs" />
-    <Compile Include="Requests\Enums.cs" />
+    <Compile Include="Requests\Types\Enums.cs" />
     <Compile Include="Requests\Methods\GetFileRequest.cs" />
     <Compile Include="Requests\Methods\SendVoiceRequest.cs" />
     <Compile Include="Responses\Methods\GetFileResponse.cs" />

@@ -5,7 +5,7 @@ namespace TeleBotDotNet.Requests.Types
 {
     public class ActionRequest : BaseTypeRequest
     {
-        public Action Action { get; set; }
+        public ChatAction Action { get; set; }
 
         internal override void Parse(HttpData httpData, string key)
         {
@@ -13,35 +13,35 @@ namespace TeleBotDotNet.Requests.Types
 
             switch (Action)
             {
-                case Action.Typing:
+                case ChatAction.Typing:
                     action = "typing";
                     break;
 
-                case Action.UploadPhoto:
+                case ChatAction.UploadPhoto:
                     action = "upload_photo";
                     break;
 
-                case Action.RecordVideo:
+                case ChatAction.RecordVideo:
                     action = "record_video";
                     break;
 
-                case Action.UploadVideo:
+                case ChatAction.UploadVideo:
                     action = "upload_video";
                     break;
 
-                case Action.RecordAudio:
+                case ChatAction.RecordAudio:
                     action = "record_audio";
                     break;
 
-                case Action.UploadAudio:
+                case ChatAction.UploadAudio:
                     action = "upload_audio";
                     break;
 
-                case Action.UploadDocument:
+                case ChatAction.UploadDocument:
                     action = "upload_document";
                     break;
 
-                case Action.FindLocation:
+                case ChatAction.FindLocation:
                     action = "find_location";
                     break;
             }

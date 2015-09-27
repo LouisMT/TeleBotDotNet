@@ -1,4 +1,4 @@
-﻿namespace TeleBotDotNet.Requests
+﻿namespace TeleBotDotNet.Requests.Types
 {
     public enum ParseMode
     {
@@ -6,7 +6,7 @@
         Markdown
     }
 
-    public enum Action
+    public enum ChatAction
     {
         Typing,
         UploadPhoto,
