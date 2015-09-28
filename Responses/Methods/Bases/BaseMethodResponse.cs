@@ -8,7 +8,7 @@
 
         public override string ToString()
         {
-            return $"is OK: {Ok} ErrorCode: {ErrorCode.Value} Description: {Description}";
+            return $"is OK: {Ok} ErrorCode: {ErrorCode} Description: {Description}";
         }
     }
 }
