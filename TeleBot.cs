@@ -35,6 +35,17 @@ namespace TeleBotDotNet
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
             var webRequest = WebRequest.Create($"{ApiUrl}/bot{ApiToken}/{request.MethodName}");
+
+            // If the request is a GetUpdatesRequest, the timeout property can be set for long polling.
+            // Set the timeout property of the WebRequest to the same time, so the WebRequest won't
+            // timeout before the API does. This way other requests will still timeout on time.
+            var updatesRequest = request as GetUpdatesRequest;
+            if (updatesRequest?.Timeout != null)
+            {
+                const int milliSecondsInSecond = 1000;
+                webRequest.Timeout = updatesRequest.Timeout.Value * milliSecondsInSecond;
+            }
+
             webRequest.Method = "POST";
             var boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x", NumberFormatInfo.InvariantInfo);
             webRequest.ContentType = "multipart/form-data; boundary=" + boundary;
