@@ -90,7 +90,8 @@ namespace TeleBotDotNet
             using (var stream = new MemoryStream())
             {
                 responseStream?.CopyTo(stream);
-                return JsonData.Deserialize(Encoding.UTF8.GetString(stream.ToArray()));
+                var responseString = Encoding.UTF8.GetString(stream.ToArray());
+                return JsonData.Deserialize(responseString);
             }
         }
 
