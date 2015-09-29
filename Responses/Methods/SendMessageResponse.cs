@@ -23,10 +23,5 @@ namespace TeleBotDotNet.Responses.Methods
                 Result = MessageResponse.Parse(data.GetJson("result"))
             };
         }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

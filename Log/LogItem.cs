@@ -9,7 +9,7 @@ namespace TeleBotDotNet.Log
         public string Message { get; set; }
         public LogType Type { get; set; }
 
-        public new string ToString()
+        public override string ToString()
         {
             return $"{Type} @ {Date}: {Message} ({Method})";
         }
