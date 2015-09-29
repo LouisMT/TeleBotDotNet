@@ -1,4 +1,4 @@
-# TeleBotDotNet [![Travis CI](https://travis-ci.org/Naxiz/TeleBotDotNet.svg?branch=master)](https://travis-ci.org/Naxiz/TeleBotDotNet)
+# TeleBotDotNet [![Build Status](https://travis-ci.org/Naxiz/TeleBotDotNet.svg?branch=master)](https://travis-ci.org/Naxiz/TeleBotDotNet)
 
 TeleBotDotNet is a Telegram Bot API for the .NET Framework. It is written in C# and is fully object-oriented.
 
@@ -17,4 +17,4 @@ teleBot.SendMessage(new SendMessageRequest
 });
 ```
 
-For more see [Naxiz/TeleBotDotNetExamples](https://github.com/Naxiz/TeleBotDotNetExamples).
+For an example project, see [Naxiz/TeleBotTicTacToe](https://github.com/Naxiz/TeleBotTicTacToe).
