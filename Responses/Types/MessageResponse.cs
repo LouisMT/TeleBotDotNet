@@ -110,5 +110,10 @@ namespace TeleBotDotNet.Responses.Types
 
             return messageResponse;
         }
+
+        public override string ToString()
+        {
+            return $"Message id: {MessageId} Text: {Text}";
+        }
     }
 }
