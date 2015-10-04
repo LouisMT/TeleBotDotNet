@@ -33,9 +33,8 @@ To use these, please add the following using statement:
 
 Currently, the following methods are available:
 
-* GetFileResponse
-  * DownloadFile (download the file as a byte aray)
-  * DownloadFileAsync (download the file async as a byte array)
+* DownloadFile(GetFileResponse) (download a file as a byte array using a GetFileResponse)
+* DownloadFileAsync(GetFileResponse) (download a file as a byte array async using a GetFileResponse)
 
 # NuGet
 

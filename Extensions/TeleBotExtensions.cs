@@ -7,9 +7,9 @@ namespace TeleBotDotNet.Extensions
     public static class TeleBotExtensions
     {
         /// <summary>
-        /// Download a file.
+        /// Download a file as a byte array using a GetFileResponse.
         /// </summary>
-        public static byte[] DownloadFile(this GetFileResponse getFileResponse, TeleBot bot)
+        public static byte[] DownloadFile(this TeleBot bot, GetFileResponse getFileResponse)
         {
             bot.Log.Info(nameof(DownloadFile));
 
@@ -32,9 +32,9 @@ namespace TeleBotDotNet.Extensions
         }
 
         /// <summary>
-        /// Download a file async.
+        /// Download a file as a byte array async using a GetFileResponse.
         /// </summary>
-        public static async Task<byte[]> DownloadFileAsync(this GetFileResponse getFileResponse, TeleBot bot)
+        public static async Task<byte[]> DownloadFileAsync(this TeleBot bot, GetFileResponse getFileResponse)
         {
             bot.Log.Info(nameof(DownloadFileAsync));
 
