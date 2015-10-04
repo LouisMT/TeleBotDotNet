@@ -28,9 +28,9 @@ namespace TeleBotDotNet
 
         public LogEngine Log => _log ?? (_log = new LogEngine());
 
-        private static string ApiUrl => "https://api.telegram.org";
+        internal static string ApiUrl => "https://api.telegram.org";
 
-        private string ApiToken { get; }
+        internal string ApiToken { get; }
 
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
@@ -194,31 +194,6 @@ namespace TeleBotDotNet
         {
             Log.Info(nameof(GetFile));
             return GetFileResponse.Parse(ExecuteAction(getFileRequest));
-        }
-
-        /// <summary>
-        /// Download a file using a <see cref="GetFileResponse"/> object.
-        /// </summary>
-        public byte[] DownloadFile(GetFileResponse getFileResponse)
-        {
-            Log.Info(nameof(DownloadFile));
-
-            if (string.IsNullOrEmpty(getFileResponse?.Result?.FilePath))
-            {
-                return null;
-            }
-
-            using (var client = new WebClient())
-            {
-                try
-                {
-                    return client.DownloadData($"{ApiUrl}/file/bot{ApiToken}/{getFileResponse.Result.FilePath}");
-                }
-                catch
-                {
-                    return null;
-                }
-            }
         }
     }
 }

@@ -19,6 +19,24 @@ teleBot.SendMessage(new SendMessageRequest
 
 For an example project, see [Naxiz/TeleBotTicTacToe](https://github.com/Naxiz/TeleBotTicTacToe).
 
+# Documentation
+
+The documentation is not included in the library. Please see the [official documentation](https://core.telegram.org/bots/api) (for example `getMe` in the documentation becomes `GetMe` in the library).
+
+# API extensions
+
+TeleBotDotNet has some API extensions. These extensions are methods which are not part of the official API but can be useful.
+
+To use these, please add the following using statement:
+
+    using TeleBotDotNet.Extensions;
+
+Currently, the following methods are available:
+
+* GetFileResponse
+  * DownloadFile (download the file as a byte aray)
+  * DownloadFileAsync (download the file async as a byte array)
+
 # NuGet
 
 To use this library in your project, you can use NuGet:
@@ -26,3 +44,9 @@ To use this library in your project, you can use NuGet:
     Install-Package TeleBotDotNet
 
 More information on [NuGet](https://www.nuget.org/packages/TeleBotDotNet).
+
+# Contributing
+
+Contributions are always welcome!
+
+If you want to be sure that your contribution will be merged, please open an issue to discuss your addition first.
