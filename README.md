@@ -18,3 +18,11 @@ teleBot.SendMessage(new SendMessageRequest
 ```
 
 For an example project, see [Naxiz/TeleBotTicTacToe](https://github.com/Naxiz/TeleBotTicTacToe).
+
+# NuGet
+
+To use this library in your project, you can use NuGet:
+
+    Install-Package TeleBotDotNet
+
+More information on [NuGet](https://www.nuget.org/packages/TeleBotDotNet).
