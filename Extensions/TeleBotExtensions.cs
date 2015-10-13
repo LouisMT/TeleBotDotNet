@@ -48,7 +48,6 @@ namespace TeleBotDotNet.Extensions
                 try
                 {
                     return await client.DownloadDataTaskAsync($"{TeleBot.ApiUrl}/file/bot{bot.ApiToken}/{getFileResponse.Result.FilePath}");
-
                 }
                 catch
                 {

@@ -45,6 +45,8 @@
     <Compile Include="Requests\Methods\GetFileRequest.cs" />
     <Compile Include="Requests\Methods\SendVoiceRequest.cs" />
     <Compile Include="Responses\Methods\GetFileResponse.cs" />
+    <Compile Include="Responses\Types\ChatResponse.cs" />
+    <Compile Include="Responses\Types\Enums.cs" />
     <Compile Include="Responses\Types\FileResponse.cs" />
     <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />
@@ -95,7 +97,6 @@
     <Compile Include="Responses\Types\AudioResponse.cs" />
     <Compile Include="Responses\Types\ContactResponse.cs" />
     <Compile Include="Responses\Types\DocumentResponse.cs" />
-    <Compile Include="Responses\Types\GroupChatResponse.cs" />
     <Compile Include="Responses\Types\LocationResponse.cs" />
     <Compile Include="Responses\Types\MessageResponse.cs" />
     <Compile Include="Responses\Types\PhotoSizeResponse.cs" />

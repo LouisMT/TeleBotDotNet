@@ -5,11 +5,8 @@ namespace TeleBotDotNet.Responses.Types
     public class UserResponse
     {
         public int Id { get; private set; }
-
         public string FirstName { get; private set; }
-
         public string LastName { get; private set; }
-
         public string UserName { get; private set; }
 
         internal static UserResponse Parse(JsonData data)

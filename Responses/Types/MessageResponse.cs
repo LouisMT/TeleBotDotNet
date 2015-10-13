@@ -13,51 +13,27 @@ namespace TeleBotDotNet.Responses.Types
         }
 
         public int MessageId { get; private set; }
-
         public UserResponse From { get; private set; }
-
         public DateTime? Date { get; private set; }
-
-        public UserResponse UserChat { get; private set; }
-
-        public GroupChatResponse GroupChat { get; private set; }
-
+        public ChatResponse Chat { get; private set; }
         public UserResponse ForwardFrom { get; private set; }
-
         public DateTime? ForwardDate { get; private set; }
-
         public MessageResponse ReplyToMessage { get; private set; }
-
         public string Text { get; private set; }
-
         public AudioResponse Audio { get; private set; }
-
         public DocumentResponse Document { get; private set; }
-
         public List<PhotoSizeResponse> Photo { get; }
-
         public StickerResponse Sticker { get; private set; }
-
         public VideoResponse Video { get; private set; }
-
         public VoiceResponse Voice { get; private set; }
-
         public string Caption { get; private set; }
-
         public ContactResponse Contact { get; private set; }
-
         public LocationResponse Location { get; private set; }
-
         public UserResponse NewChatParticipant { get; private set; }
-
         public UserResponse LeftChatParticipant { get; private set; }
-
         public string NewChatTitle { get; private set; }
-
         public List<PhotoSizeResponse> NewChatPhoto { get; }
-
         public bool? DeleteChatPhoto { get; private set; }
-
         public bool? GroupChatCreated { get; private set; }
 
         internal static MessageResponse Parse(JsonData data)
@@ -72,8 +48,7 @@ namespace TeleBotDotNet.Responses.Types
                 MessageId = data.Get<int>("message_id"),
                 From = UserResponse.Parse(data.GetJson("from")),
                 Date = data.GetDateTime("date"),
-                UserChat = UserResponse.Parse(data.GetJson("chat")),
-                GroupChat = GroupChatResponse.Parse(data.GetJson("chat")),
+                Chat = ChatResponse.Parse(data.GetJson("chat")),
                 ForwardFrom = UserResponse.Parse(data.GetJson("forward_from")),
                 ForwardDate = data.GetDateTime("forward_date"),
                 ReplyToMessage = Parse(data.GetJson("reply_to_message")),
