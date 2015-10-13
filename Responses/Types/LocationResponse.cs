@@ -4,8 +4,8 @@ namespace TeleBotDotNet.Responses.Types
 {
     public class LocationResponse
     {
-        public float Longitude { get; private set; }
-        public float Latitude { get; private set; }
+        public decimal Longitude { get; private set; }
+        public decimal Latitude { get; private set; }
 
         internal static LocationResponse Parse(JsonData data)
         {
@@ -16,8 +16,8 @@ namespace TeleBotDotNet.Responses.Types
 
             return new LocationResponse
             {
-                Longitude = data.Get<float>("longitude"),
-                Latitude = data.Get<float>("latitude")
+                Longitude = data.Get<decimal>("longitude"),
+                Latitude = data.Get<decimal>("latitude")
             };
         }
     }
