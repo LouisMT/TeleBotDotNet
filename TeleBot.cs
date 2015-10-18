@@ -43,7 +43,7 @@ namespace TeleBotDotNet
             if (updatesRequest?.Timeout != null)
             {
                 const int milliSecondsInSecond = 1000;
-                webRequest.Timeout = updatesRequest.Timeout.Value * milliSecondsInSecond;
+                webRequest.Timeout += updatesRequest.Timeout.Value * milliSecondsInSecond;
             }
 
             webRequest.Method = "POST";
