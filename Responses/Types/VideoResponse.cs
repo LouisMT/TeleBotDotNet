@@ -4,7 +4,7 @@ namespace TeleBotDotNet.Responses.Types
 {
     public class VideoResponse
     {
-        public int FileId { get; private set; }
+        public string FileId { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public int Duration { get; private set; }
@@ -21,7 +21,7 @@ namespace TeleBotDotNet.Responses.Types
 
             return new VideoResponse
             {
-                FileId = data.Get<int>("file_id"),
+                FileId = data.Get<string>("file_id"),
                 Width = data.Get<int>("width"),
                 Height = data.Get<int>("height"),
                 Duration = data.Get<int>("duration"),
