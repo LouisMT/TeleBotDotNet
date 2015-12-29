@@ -11,7 +11,7 @@ namespace TeleBotDotNet.Responses.Types
 
         internal static PhotoSizeResponse Parse(JsonData data)
         {
-            if (data == null || !data.Has("file_id") || data.Has("width") || data.Has("height"))
+            if (data == null || !data.Has("file_id") || !data.Has("width") || !data.Has("height"))
             {
                 return null;
             }
