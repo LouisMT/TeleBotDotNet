@@ -35,6 +35,10 @@ namespace TeleBotDotNet.Responses.Types
         public List<PhotoSizeResponse> NewChatPhoto { get; }
         public bool? DeleteChatPhoto { get; private set; }
         public bool? GroupChatCreated { get; private set; }
+        public bool? SupergroupChatCreated { get; private set; }
+        public bool? ChannelChatCreated { get; private set; }
+        public int? MigrateToChatId { get; private set; }
+        public int? MigrateFromChatId { get; private set; }
 
         internal static MessageResponse Parse(JsonData data)
         {
@@ -65,7 +69,11 @@ namespace TeleBotDotNet.Responses.Types
                 LeftChatParticipant = UserResponse.Parse(data.GetJson("left_chat_participant")),
                 NewChatTitle = data.Get<string>("new_chat_title"),
                 DeleteChatPhoto = data.Get<bool?>("delete_chat_photo"),
-                GroupChatCreated = data.Get<bool?>("group_chat_created")
+                GroupChatCreated = data.Get<bool?>("group_chat_created"),
+                SupergroupChatCreated = data.Get<bool?>("supergroup_chat_created"),
+                ChannelChatCreated = data.Get<bool?>("channel_chat_created"),
+                MigrateToChatId = data.Get<int?>("migrate_to_chat_id"),
+                MigrateFromChatId = data.Get<int?>("migrate_from_chat_id")
             };
 
             if (data.Has("photo"))

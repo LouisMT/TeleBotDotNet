@@ -4,6 +4,7 @@
     {
         Private,
         Group,
-        Channel
+        Channel,
+        Supergroup
     }
 }

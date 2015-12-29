@@ -13,7 +13,7 @@ using TeleBotDotNet.Responses.Types;
 namespace TeleBotDotNet
 {
     /// <summary>
-    /// API implementation of October 8, 2015.
+    /// API implementation of November, 2015.
     /// For documentation, please see https://core.telegram.org/bots/api.
     /// </summary>
     public class TeleBot

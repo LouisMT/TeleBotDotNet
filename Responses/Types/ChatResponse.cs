@@ -40,6 +40,10 @@ namespace TeleBotDotNet.Responses.Types
                 case "channel":
                     chatResponse.Type = ChatType.Channel;
                     break;
+
+                case "supergroup":
+                    chatResponse.Type = ChatType.Supergroup;
+                    break;
             }
 
             return chatResponse;
