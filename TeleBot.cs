@@ -34,7 +34,7 @@ namespace TeleBotDotNet
 
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
-			const string httpNewLine = "\r\n";
+            const string httpNewLine = "\r\n";
             var webRequest = WebRequest.Create($"{ApiUrl}/bot{ApiToken}/{request.MethodName}");
 
             // If the request is a GetUpdatesRequest, the timeout property can be set for long polling.

@@ -65,8 +65,15 @@ namespace TeleBotDotNet.Json
 
         internal static JsonData Deserialize(string input)
         {
-            var javaScriptSerializer = new JavaScriptSerializer();
-            return new JsonData(javaScriptSerializer.Deserialize<Dictionary<string, object>>(input));
+            try
+            {
+                var javaScriptSerializer = new JavaScriptSerializer();
+                return new JsonData(javaScriptSerializer.Deserialize<Dictionary<string, object>>(input));
+            }
+            catch (Exception exception)
+            {
+                throw new JsonException(input, exception);
+            }
         }
     }
 }
