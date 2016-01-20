@@ -4,12 +4,9 @@ namespace TeleBotDotNet.Json
 {
     internal class JsonException : Exception
     {
-        public Exception UnderlyingException { get; }
-
-        internal JsonException(string input, Exception underlyingException)
-            : base(GetExceptionMessage(input))
+        internal JsonException(string input, Exception innerException)
+            : base(GetExceptionMessage(input), innerException)
         {
-            UnderlyingException = underlyingException;
         }
 
         private static string GetExceptionMessage(string input)
