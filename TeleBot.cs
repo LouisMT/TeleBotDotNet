@@ -34,6 +34,7 @@ namespace TeleBotDotNet
 
         private dynamic ExecuteAction(BaseMethodRequest request)
         {
+			const string httpNewLine = "\r\n";
             var webRequest = WebRequest.Create($"{ApiUrl}/bot{ApiToken}/{request.MethodName}");
 
             // If the request is a GetUpdatesRequest, the timeout property can be set for long polling.
@@ -58,25 +59,25 @@ namespace TeleBotDotNet
                 // Write the values
                 foreach (var parameter in options.Parameters)
                 {
-                    var buffer = Encoding.ASCII.GetBytes(boundary + Environment.NewLine);
+                    var buffer = Encoding.ASCII.GetBytes(boundary + httpNewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer = Encoding.ASCII.GetBytes($"Content-Disposition: form-data; name=\"{parameter.Key}\"{Environment.NewLine}{Environment.NewLine}");
+                    buffer = Encoding.ASCII.GetBytes($"Content-Disposition: form-data; name=\"{parameter.Key}\"{httpNewLine}{httpNewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer = Encoding.UTF8.GetBytes(parameter.Value + Environment.NewLine);
+                    buffer = Encoding.UTF8.GetBytes(parameter.Value + httpNewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
                 }
 
                 // Write the files
                 foreach (var file in options.Files)
                 {
-                    var buffer = Encoding.ASCII.GetBytes(boundary + Environment.NewLine);
+                    var buffer = Encoding.ASCII.GetBytes(boundary + httpNewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer = Encoding.UTF8.GetBytes($"Content-Disposition: form-data; name=\"{file.Key}\"; filename=\"{file.FileName}\"{Environment.NewLine}");
+                    buffer = Encoding.UTF8.GetBytes($"Content-Disposition: form-data; name=\"{file.Key}\"; filename=\"{file.FileName}\"{httpNewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
-                    buffer = Encoding.ASCII.GetBytes($"Content-Type: {file.ContentType}{Environment.NewLine}{Environment.NewLine}");
+                    buffer = Encoding.ASCII.GetBytes($"Content-Type: {file.ContentType}{httpNewLine}{httpNewLine}");
                     requestStream.Write(buffer, 0, buffer.Length);
                     new MemoryStream(file.File).CopyTo(requestStream);
-                    buffer = Encoding.ASCII.GetBytes(Environment.NewLine);
+                    buffer = Encoding.ASCII.GetBytes(httpNewLine);
                     requestStream.Write(buffer, 0, buffer.Length);
                 }
 
