@@ -197,10 +197,10 @@ namespace TeleBotDotNet
             return GetFileResponse.Parse(ExecuteAction(getFileRequest));
         }
 
-        public bool AnswerInlineQuery(AnswerInlineQueryRequest answerInlineQueryRequest)
+        public AnswerInlineQueryResponse AnswerInlineQuery(AnswerInlineQueryRequest answerInlineQueryRequest)
         {
             Log.Info(nameof(AnswerInlineQuery));
-            return bool.Parse(ExecuteAction(answerInlineQueryRequest));
+            return AnswerInlineQueryResponse.Parse(ExecuteAction(answerInlineQueryRequest));
         }
     }
 }

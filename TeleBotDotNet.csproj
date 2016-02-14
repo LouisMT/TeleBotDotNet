@@ -53,6 +53,7 @@
     <Compile Include="Requests\Types\InlineQueryResultPhotoRequest.cs" />
     <Compile Include="Requests\Types\InlineQueryResultVideoRequest.cs" />
     <Compile Include="Requests\Types\Interfaces\IInlineQueryResultRequest.cs" />
+    <Compile Include="Responses\Methods\AnswerInlineQueryResponse.cs" />
     <Compile Include="Responses\Methods\GetFileResponse.cs" />
     <Compile Include="Responses\Types\ChatResponse.cs" />
     <Compile Include="Responses\Types\ChosenInlineResultResponse.cs" />
