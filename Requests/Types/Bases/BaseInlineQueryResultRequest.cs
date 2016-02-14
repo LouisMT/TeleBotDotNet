@@ -1,7 +1,9 @@
-﻿namespace TeleBotDotNet.Requests.Types.Bases
+﻿using System.Collections.Generic;
+
+namespace TeleBotDotNet.Requests.Types.Bases
 {
     public abstract class BaseInlineQueryResultRequest
     {
-        internal abstract dynamic Parse();
+        internal abstract Dictionary<string, object> Parse();
     }
 }

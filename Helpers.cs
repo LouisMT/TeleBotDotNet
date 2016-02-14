@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TeleBotDotNet.Requests.Types;
 
 namespace TeleBotDotNet
@@ -26,6 +28,15 @@ namespace TeleBotDotNet
 
                 default:
                     return null;
+            }
+        }
+
+        internal static void RemoveEmptyEntries(this Dictionary<string, object> dictionary)
+        {
+            var emptyEntryKeys = dictionary.Where(e => e.Value == null).Select(e => e.Key).ToList();
+            foreach (var emptyEntryKey in emptyEntryKeys)
+            {
+                dictionary.Remove(emptyEntryKey);
             }
         }
     }

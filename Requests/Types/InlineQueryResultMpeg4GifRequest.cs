@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Requests.Types.Bases;
+﻿using System.Collections.Generic;
+using TeleBotDotNet.Requests.Types.Bases;
 using TeleBotDotNet.Requests.Types.Interfaces;
 
 namespace TeleBotDotNet.Requests.Types
@@ -18,22 +19,27 @@ namespace TeleBotDotNet.Requests.Types
         public ParseMode ParseMode { get; set; }
         public bool DisableWebPagePreview { get; set; }
 
-        internal override dynamic Parse()
+        internal override Dictionary<string, object> Parse()
         {
-            return new
+            var data = new Dictionary<string, object>
             {
-                type = Type,
-                id = Id,
-                mpeg4_url = Mpeg4Url,
-                mpeg4_width = Mpeg4Width,
-                mpeg4_height = Mpeg4Height,
-                thumb_url = ThumbUrl,
-                title = Title,
-                caption = Caption,
-                message_text = MessageText,
-                parse_mode = ParseMode.GetValue(),
-                disable_web_page_preview = DisableWebPagePreview
+                { "type", Type },
+                { "id", Id },
+                { "mpeg4_url", Mpeg4Url },
+                { "mpeg4_width", Mpeg4Width },
+                { "mpeg4_height", Mpeg4Height },
+                { "thumb_url", ThumbUrl },
+                { "title", Title },
+                { "caption", Caption },
+                { "message_text", MessageText },
+                { "parse_mode", ParseMode.GetValue() },
+                { "disable_web_page_preview", DisableWebPagePreview }
             };
+
+            // Assume null entries are optional and remove them
+            data.RemoveEmptyEntries();
+
+            return data;
         }
     }
 }

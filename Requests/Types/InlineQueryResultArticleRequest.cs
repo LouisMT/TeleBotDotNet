@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Requests.Types.Bases;
+﻿using System.Collections.Generic;
+using TeleBotDotNet.Requests.Types.Bases;
 using TeleBotDotNet.Requests.Types.Interfaces;
 
 namespace TeleBotDotNet.Requests.Types
@@ -19,23 +20,28 @@ namespace TeleBotDotNet.Requests.Types
         public int ThumbWidth { get; set; }
         public int ThumbHeight { get; set; }
 
-        internal override dynamic Parse()
+        internal override Dictionary<string, object> Parse()
         {
-            return new
+            var data = new Dictionary<string, object>
             {
-                type = Type,
-                id = Id,
-                title = Title,
-                message_text = MessageText,
-                parse_mode = ParseMode.GetValue(),
-                disable_web_page_preview = DisableWebPagePreview,
-                url = Url,
-                hide_url = HideUrl,
-                description = Description,
-                thumb_url = ThumbUrl,
-                thumb_width = ThumbWidth,
-                thumb_height = ThumbHeight
+                { "type", Type },
+                { "id", Id },
+                { "title", Title },
+                { "message_text", MessageText },
+                { "parse_mode", ParseMode.GetValue() },
+                { "disable_web_page_preview", DisableWebPagePreview },
+                { "url", Url },
+                { "hide_url", HideUrl },
+                { "description", Description },
+                { "thumb_url", ThumbUrl },
+                { "thumb_width", ThumbWidth },
+                { "thumb_height", ThumbHeight }
             };
+
+            // Assume null entries are optional and remove them
+            data.RemoveEmptyEntries();
+
+            return data;
         }
     }
 }
