@@ -3,7 +3,8 @@
     public enum ParseMode
     {
         Normal,
-        Markdown
+        Markdown,
+        HTML
     }
 
     public enum ChatAction

@@ -23,21 +23,11 @@ namespace TeleBotDotNet.Requests.Methods
                 {
                     { "chat_id", ChatId },
                     { "text", Text },
+                    { "parse_mode", ParseMode.GetValue() },
                     { "disable_web_page_preview", DisableWebPagePreview },
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };
-
-            string parseMode = null;
-
-            switch (ParseMode)
-            {
-                case ParseMode.Markdown:
-                    parseMode = "Markdown";
-                    break;
-            }
-
-            httpData.Parameters.Add("parse_mode", parseMode);
 
             ReplyMarkup?.Parse(httpData, "reply_markup");
 

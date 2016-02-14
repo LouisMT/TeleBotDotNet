@@ -6,6 +6,8 @@ namespace TeleBotDotNet.Responses.Types
     {
         public int UpdateId { get; private set; }
         public MessageResponse Message { get; private set; }
+        public InlineQueryResponse InlineQuery { get; private set; }
+        public ChosenInlineResultResponse ChosenInlineResult { get; private set; }
 
         internal static UpdateResponse Parse(JsonData data)
         {
@@ -17,7 +19,9 @@ namespace TeleBotDotNet.Responses.Types
             return new UpdateResponse
             {
                 UpdateId = data.Get<int>("update_id"),
-                Message = MessageResponse.Parse(data.GetJson("message"))
+                Message = MessageResponse.Parse(data.GetJson("message")),
+                InlineQuery = InlineQueryResponse.Parse(data.GetJson("inline_query")),
+                ChosenInlineResult = ChosenInlineResultResponse.Parse(data.GetJson("chosen_inline_result"))
             };
         }
     }

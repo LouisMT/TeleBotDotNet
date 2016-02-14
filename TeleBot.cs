@@ -13,7 +13,7 @@ using TeleBotDotNet.Responses.Types;
 namespace TeleBotDotNet
 {
     /// <summary>
-    /// API implementation of November, 2015.
+    /// API implementation of January 20, 2016.
     /// For documentation, please see https://core.telegram.org/bots/api.
     /// </summary>
     public class TeleBot
@@ -195,6 +195,12 @@ namespace TeleBotDotNet
         {
             Log.Info(nameof(GetFile));
             return GetFileResponse.Parse(ExecuteAction(getFileRequest));
+        }
+
+        public bool AnswerInlineQuery(AnswerInlineQueryRequest answerInlineQueryRequest)
+        {
+            Log.Info(nameof(AnswerInlineQuery));
+            return bool.Parse(ExecuteAction(answerInlineQueryRequest));
         }
     }
 }
