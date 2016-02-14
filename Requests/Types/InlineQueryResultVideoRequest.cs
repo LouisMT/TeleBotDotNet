@@ -13,10 +13,10 @@ namespace TeleBotDotNet.Requests.Types
         public string MimeType { get; set; }
         public string MessageText { get; set; }
         public ParseMode ParseMode { get; set; }
-        public bool DisableWebPagePreview { get; set; }
-        public int VideoWidth { get; set; }
-        public int VideoHeight { get; set; }
-        public int VideoDuration { get; set; }
+        public bool? DisableWebPagePreview { get; set; }
+        public int? VideoWidth { get; set; }
+        public int? VideoHeight { get; set; }
+        public int? VideoDuration { get; set; }
         public string ThumbUrl { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

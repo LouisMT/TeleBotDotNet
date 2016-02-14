@@ -12,8 +12,8 @@ namespace TeleBotDotNet.Requests.Methods
     {
         public string InlineQueryId { get; set; }
         public List<IInlineQueryResultRequest> Results { get; set; }
-        public int CacheTime { get; set; }
-        public bool IsPersonal { get; set; }
+        public int? CacheTime { get; set; }
+        public bool? IsPersonal { get; set; }
         public string NextOffset { get; set; }
 
         internal override string MethodName => "answerInlineQuery";

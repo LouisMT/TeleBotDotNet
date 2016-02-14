@@ -10,14 +10,14 @@ namespace TeleBotDotNet.Requests.Types
 
         public string Id { get; set; }
         public string GifUrl { get; set; }
-        public int GifWidth { get; set; }
-        public int GifHeight { get; set; }
+        public int? GifWidth { get; set; }
+        public int? GifHeight { get; set; }
         public string ThumbUrl { get; set; }
         public string Title { get; set; }
         public string Caption { get; set; }
         public string MessageText { get; set; }
         public ParseMode ParseMode { get; set; }
-        public bool DisableWebPagePreview { get; set; }
+        public bool? DisableWebPagePreview { get; set; }
 
         internal override Dictionary<string, object> Parse()
         {

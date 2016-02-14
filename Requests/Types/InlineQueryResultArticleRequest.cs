@@ -12,13 +12,13 @@ namespace TeleBotDotNet.Requests.Types
         public string Title { get; set; }
         public string MessageText { get; set; }
         public ParseMode ParseMode { get; set; }
-        public bool DisableWebPagePreview { get; set; }
+        public bool? DisableWebPagePreview { get; set; }
         public string Url { get; set; }
-        public bool HideUrl { get; set; }
+        public bool? HideUrl { get; set; }
         public string Description { get; set; }
         public string ThumbUrl { get; set; }
-        public int ThumbWidth { get; set; }
-        public int ThumbHeight { get; set; }
+        public int? ThumbWidth { get; set; }
+        public int? ThumbHeight { get; set; }
 
         internal override Dictionary<string, object> Parse()
         {
