@@ -11,7 +11,7 @@ var teleBot = new TeleBot("YOUR_API_KEY_HERE", false);
 
 teleBot.SendMessage(new SendMessageRequest
 {
-    ChatId = updateResponse.Message?.UserChat.Id ?? updateResponse.Message.GroupChat.Id,
+    ChatId = updateResponse.Message?.Chat?.Id,
     Text = "This is a test.",
     ReplyToMessageId = updateResponse.Message.MessageId
 });
