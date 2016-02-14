@@ -4,7 +4,7 @@
     {
         Normal,
         Markdown,
-        HTML
+        Html
     }
 
     public enum ChatAction

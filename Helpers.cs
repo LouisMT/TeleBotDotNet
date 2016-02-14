@@ -21,7 +21,7 @@ namespace TeleBotDotNet
                 case ParseMode.Markdown:
                     return "Markdown";
 
-                case ParseMode.HTML:
+                case ParseMode.Html:
                     return "HTML";
 
                 default:
