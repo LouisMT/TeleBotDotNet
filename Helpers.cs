@@ -16,6 +16,39 @@ namespace TeleBotDotNet
             return null;
         }
 
+        internal static string GetValue(this ChatAction chatAction)
+        {
+            switch (chatAction)
+            {
+                case ChatAction.Typing:
+                    return "typing";
+
+                case ChatAction.UploadPhoto:
+                    return "upload_photo";
+
+                case ChatAction.RecordVideo:
+                    return "record_video";
+
+                case ChatAction.UploadVideo:
+                    return "upload_video";
+
+                case ChatAction.RecordAudio:
+                    return "record_audio";
+
+                case ChatAction.UploadAudio:
+                    return "upload_audio";
+
+                case ChatAction.UploadDocument:
+                    return "upload_document";
+
+                case ChatAction.FindLocation:
+                    return "find_location";
+
+                default:
+                    return null;
+            }
+        }
+
         internal static string GetValue(this ParseMode parseMode)
         {
             switch (parseMode)

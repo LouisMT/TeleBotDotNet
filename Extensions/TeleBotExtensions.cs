@@ -13,22 +13,7 @@ namespace TeleBotDotNet.Extensions
         {
             bot.Log.Info(nameof(DownloadFile));
 
-            if (string.IsNullOrEmpty(getFileResponse?.Result?.FilePath))
-            {
-                return null;
-            }
-
-            using (var client = new WebClient())
-            {
-                try
-                {
-                    return client.DownloadData($"{TeleBot.ApiUrl}/file/bot{bot.ApiToken}/{getFileResponse.Result.FilePath}");
-                }
-                catch
-                {
-                    return null;
-                }
-            }
+            return DownloadFileAsync(bot, getFileResponse).Result;
         }
 
         /// <summary>
