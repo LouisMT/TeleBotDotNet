@@ -7,6 +7,7 @@ namespace TeleBotDotNet.Requests.Methods
     {
         public int ChatId { get; set; }
         public int FromChatId { get; set; }
+        public bool DisableNotification { get; set; }
         public int MessageId { get; set; }
 
         internal override string MethodName => "forwardMessage";
@@ -19,6 +20,7 @@ namespace TeleBotDotNet.Requests.Methods
                 {
                     { "chat_id", ChatId },
                     { "from_chat_id", FromChatId },
+                    { "disable_notification", DisableNotification },
                     { "message_id", MessageId }
                 }
             };

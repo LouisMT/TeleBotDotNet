@@ -10,6 +10,7 @@ namespace TeleBotDotNet.Requests.Methods
         public string Text { get; set; }
         public ParseMode ParseMode { get; set; }
         public bool DisableWebPagePreview { get; set; }
+        public bool DisableNotification { get; set; }
         public int? ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
@@ -25,6 +26,7 @@ namespace TeleBotDotNet.Requests.Methods
                     { "text", Text },
                     { "parse_mode", ParseMode.GetValue() },
                     { "disable_web_page_preview", DisableWebPagePreview },
+                    { "disable_notification", DisableNotification },
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };

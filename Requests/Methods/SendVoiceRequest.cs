@@ -9,6 +9,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int ChatId { get; set; }
         public InputFileRequest Voice { get; set; }
         public int? Duration { get; set; }
+        public bool DisableNotification { get; set; }
         public int? ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
@@ -22,6 +23,7 @@ namespace TeleBotDotNet.Requests.Methods
                 {
                     { "chat_id", ChatId },
                     { "duration", Duration },
+                    { "disable_notification", DisableNotification },
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };

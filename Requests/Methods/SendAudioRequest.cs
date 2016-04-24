@@ -11,6 +11,7 @@ namespace TeleBotDotNet.Requests.Methods
         public int? Duration { get; set; }
         public string Performer { get; set; }
         public string Title { get; set; }
+        public bool DisableNotification { get; set; }
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
@@ -26,6 +27,7 @@ namespace TeleBotDotNet.Requests.Methods
                     { "duration", Duration },
                     { "performer", Performer },
                     { "title", Title },
+                    { "disable_notification", DisableNotification },
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };

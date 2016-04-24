@@ -8,6 +8,8 @@ namespace TeleBotDotNet.Requests.Methods
     {
         public int ChatId { get; set; }
         public InputFileRequest Document { get; set; }
+        public string Caption { get; set; }
+        public bool DisableNotification { get; set; }
         public int ReplyToMessageId { get; set; }
         public ReplyMarkupRequest ReplyMarkup { get; set; }
 
@@ -20,6 +22,8 @@ namespace TeleBotDotNet.Requests.Methods
                 Parameters = new HttpParameterList
                 {
                     { "chat_id", ChatId },
+                    { "caption", Caption },
+                    { "disable_notification", DisableNotification },
                     { "reply_to_message_id", ReplyToMessageId }
                 }
             };
