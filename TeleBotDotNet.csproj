@@ -44,6 +44,8 @@
     <Compile Include="Log\Enums.cs" />
     <Compile Include="Requests\Methods\KickChatMemberRequest.cs" />
     <Compile Include="Requests\Methods\AnswerInlineQueryRequest.cs" />
+    <Compile Include="Requests\Methods\SendContactRequest.cs" />
+    <Compile Include="Requests\Methods\SendVenueRequest.cs" />
     <Compile Include="Requests\Methods\UnbanChatMemberRequest.cs" />
     <Compile Include="Requests\Types\Bases\BaseInlineQueryResultRequest.cs" />
     <Compile Include="Requests\Types\Enums.cs" />
@@ -58,6 +60,8 @@
     <Compile Include="Responses\Methods\AnswerInlineQueryResponse.cs" />
     <Compile Include="Responses\Methods\GetFileResponse.cs" />
     <Compile Include="Responses\Methods\KickChatMemberResponse.cs" />
+    <Compile Include="Responses\Methods\SendContactResponse.cs" />
+    <Compile Include="Responses\Methods\SendVenueResponse.cs" />
     <Compile Include="Responses\Methods\UnbanChatMemberResponse.cs" />
     <Compile Include="Responses\Types\ChatResponse.cs" />
     <Compile Include="Responses\Types\ChosenInlineResultResponse.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Responses\Types\UserResponse.cs" />
     <Compile Include="Responses\Types\VideoResponse.cs" />
     <Compile Include="Extensions\TeleBotExtensions.cs" />
+    <Compile Include="TeleBotMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
