@@ -197,6 +197,18 @@ namespace TeleBotDotNet
             return GetFileResponse.Parse(ExecuteAction(getFileRequest));
         }
 
+        public KickChatMemberResponse KickChatMember(KickChatMemberRequest kickChatMemberRequest)
+        {
+            Log.Info(nameof(KickChatMember));
+            return KickChatMemberResponse.Parse(ExecuteAction(kickChatMemberRequest));
+        }
+
+        public UnbanChatMemberResponse UnbanChatMember(UnbanChatMemberRequest unbanChatMemberRequest)
+        {
+            Log.Info(nameof(UnbanChatMember));
+            return UnbanChatMemberResponse.Parse(ExecuteAction(unbanChatMemberRequest));
+        }
+
         public AnswerInlineQueryResponse AnswerInlineQuery(AnswerInlineQueryRequest answerInlineQueryRequest)
         {
             Log.Info(nameof(AnswerInlineQuery));

@@ -42,7 +42,9 @@
     <Compile Include="Json\Json.cs" />
     <Compile Include="Json\JsonException.cs" />
     <Compile Include="Log\Enums.cs" />
+    <Compile Include="Requests\Methods\KickChatMemberRequest.cs" />
     <Compile Include="Requests\Methods\AnswerInlineQueryRequest.cs" />
+    <Compile Include="Requests\Methods\UnbanChatMemberRequest.cs" />
     <Compile Include="Requests\Types\Bases\BaseInlineQueryResultRequest.cs" />
     <Compile Include="Requests\Types\Enums.cs" />
     <Compile Include="Requests\Methods\GetFileRequest.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="Requests\Types\Interfaces\IInlineQueryResultRequest.cs" />
     <Compile Include="Responses\Methods\AnswerInlineQueryResponse.cs" />
     <Compile Include="Responses\Methods\GetFileResponse.cs" />
+    <Compile Include="Responses\Methods\KickChatMemberResponse.cs" />
+    <Compile Include="Responses\Methods\UnbanChatMemberResponse.cs" />
     <Compile Include="Responses\Types\ChatResponse.cs" />
     <Compile Include="Responses\Types\ChosenInlineResultResponse.cs" />
     <Compile Include="Responses\Types\Enums.cs" />
