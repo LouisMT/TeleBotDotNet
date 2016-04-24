@@ -64,6 +64,8 @@
     <Compile Include="Responses\Types\Enums.cs" />
     <Compile Include="Responses\Types\FileResponse.cs" />
     <Compile Include="Responses\Types\InlineQueryResponse.cs" />
+    <Compile Include="Responses\Types\MessageEntityResponse.cs" />
+    <Compile Include="Responses\Types\VenueResponse.cs" />
     <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />
     <Compile Include="Helpers.cs" />

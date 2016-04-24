@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Json;
+﻿using System;
+using TeleBotDotNet.Json;
 
 namespace TeleBotDotNet.Responses.Types
 {
@@ -27,24 +28,8 @@ namespace TeleBotDotNet.Responses.Types
                 LastName = data.Get<string>("last_name")
             };
 
-            switch (data.Get<string>("type"))
-            {
-                case "private":
-                    chatResponse.Type = ChatType.Private;
-                    break;
-
-                case "group":
-                    chatResponse.Type = ChatType.Group;
-                    break;
-
-                case "channel":
-                    chatResponse.Type = ChatType.Channel;
-                    break;
-
-                case "supergroup":
-                    chatResponse.Type = ChatType.Supergroup;
-                    break;
-            }
+            var chatType = data.Get<string>("type");
+            chatResponse.Type = (ChatType)Enum.Parse(typeof(ChatType), chatType, true);
 
             return chatResponse;
         }

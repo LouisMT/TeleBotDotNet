@@ -8,6 +8,7 @@ namespace TeleBotDotNet.Responses.Types
     {
         public MessageResponse()
         {
+            Entities = new List<MessageEntityResponse>();
             Photo = new List<PhotoSizeResponse>();
             NewChatPhoto = new List<PhotoSizeResponse>();
         }
@@ -20,6 +21,7 @@ namespace TeleBotDotNet.Responses.Types
         public DateTime? ForwardDate { get; private set; }
         public MessageResponse ReplyToMessage { get; private set; }
         public string Text { get; private set; }
+        public List<MessageEntityResponse> Entities { get; private set; }
         public AudioResponse Audio { get; private set; }
         public DocumentResponse Document { get; private set; }
         public List<PhotoSizeResponse> Photo { get; }
@@ -29,8 +31,9 @@ namespace TeleBotDotNet.Responses.Types
         public string Caption { get; private set; }
         public ContactResponse Contact { get; private set; }
         public LocationResponse Location { get; private set; }
-        public UserResponse NewChatParticipant { get; private set; }
-        public UserResponse LeftChatParticipant { get; private set; }
+        public VenueResponse Venue { get; private set; }
+        public UserResponse NewChatMember { get; private set; }
+        public UserResponse LeftChatMember { get; private set; }
         public string NewChatTitle { get; private set; }
         public List<PhotoSizeResponse> NewChatPhoto { get; }
         public bool? DeleteChatPhoto { get; private set; }
@@ -39,6 +42,7 @@ namespace TeleBotDotNet.Responses.Types
         public bool? ChannelChatCreated { get; private set; }
         public int? MigrateToChatId { get; private set; }
         public int? MigrateFromChatId { get; private set; }
+        public MessageResponse PinnedMessage { get; private set; }
 
         internal static MessageResponse Parse(JsonData data)
         {
@@ -65,16 +69,26 @@ namespace TeleBotDotNet.Responses.Types
                 Caption = data.Get<string>("caption"),
                 Contact = ContactResponse.Parse(data.GetJson("contact")),
                 Location = LocationResponse.Parse(data.GetJson("location")),
-                NewChatParticipant = UserResponse.Parse(data.GetJson("new_chat_participant")),
-                LeftChatParticipant = UserResponse.Parse(data.GetJson("left_chat_participant")),
+                Venue = VenueResponse.Parse(data.GetJson("venue")),
+                NewChatMember = UserResponse.Parse(data.GetJson("new_chat_member")),
+                LeftChatMember = UserResponse.Parse(data.GetJson("left_chat_member")),
                 NewChatTitle = data.Get<string>("new_chat_title"),
                 DeleteChatPhoto = data.Get<bool?>("delete_chat_photo"),
                 GroupChatCreated = data.Get<bool?>("group_chat_created"),
                 SupergroupChatCreated = data.Get<bool?>("supergroup_chat_created"),
                 ChannelChatCreated = data.Get<bool?>("channel_chat_created"),
                 MigrateToChatId = data.Get<int?>("migrate_to_chat_id"),
-                MigrateFromChatId = data.Get<int?>("migrate_from_chat_id")
+                MigrateFromChatId = data.Get<int?>("migrate_from_chat_id"),
+                PinnedMessage = Parse(data.GetJson("pinned_message"))
             };
+
+            if (data.Has("entities"))
+            {
+                foreach (var entity in data.GetJsonList("entities"))
+                {
+                    messageResponse.Entities.Add(MessageEntityResponse.Parse(entity));
+                }
+            }
 
             if (data.Has("photo"))
             {
@@ -83,6 +97,7 @@ namespace TeleBotDotNet.Responses.Types
                     messageResponse.Photo.Add(PhotoSizeResponse.Parse(photo));
                 }
             }
+
             if (data.Has("new_chat_photo"))
             {
                 foreach (var photo in data.GetJsonList("new_chat_photo"))
