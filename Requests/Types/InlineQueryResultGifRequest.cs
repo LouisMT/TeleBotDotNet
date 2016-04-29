@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TeleBotDotNet.Extensions;
 using TeleBotDotNet.Requests.Types.Bases;
 using TeleBotDotNet.Requests.Types.Interfaces;
 

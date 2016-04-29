@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendVideoRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public InputFileRequest Video { get; set; }
         public int? Duration { get; set; }
         public string Caption { get; set; }

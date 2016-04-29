@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Http;
+﻿using TeleBotDotNet.Extensions;
+using TeleBotDotNet.Http;
 using TeleBotDotNet.Requests.Methods.Bases;
 using TeleBotDotNet.Requests.Types;
 
@@ -6,7 +7,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendMessageRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public string Text { get; set; }
         public ParseMode ParseMode { get; set; }
         public bool DisableWebPagePreview { get; set; }

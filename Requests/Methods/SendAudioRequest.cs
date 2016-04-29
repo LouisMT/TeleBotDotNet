@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendAudioRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public InputFileRequest Audio { get; set; }
         public int? Duration { get; set; }
         public string Performer { get; set; }

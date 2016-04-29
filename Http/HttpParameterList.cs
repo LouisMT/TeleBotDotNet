@@ -45,5 +45,14 @@ namespace TeleBotDotNet.Http
                     Convert.ToString(value.Value, CultureInfo.InvariantCulture) : string.Empty
             });
         }
+
+        internal void Add(string key, TeleChatId value)
+        {
+            Add(new HttpParameter
+            {
+                Key = key,
+                Value = value.ToString()
+            });
+        }
     }
 }

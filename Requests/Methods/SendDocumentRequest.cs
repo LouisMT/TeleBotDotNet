@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendDocumentRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public InputFileRequest Document { get; set; }
         public string Caption { get; set; }
         public bool DisableNotification { get; set; }

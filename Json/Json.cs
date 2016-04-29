@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
+using TeleBotDotNet.Extensions;
 
 namespace TeleBotDotNet.Json
 {

@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendChatActionRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public ActionRequest Action { get; set; }
 
         internal override string MethodName => "sendChatAction";

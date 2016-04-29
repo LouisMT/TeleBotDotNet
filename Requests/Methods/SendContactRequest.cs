@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendContactRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public string PhoneNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

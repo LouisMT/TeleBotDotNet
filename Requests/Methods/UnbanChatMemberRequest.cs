@@ -5,7 +5,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class UnbanChatMemberRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public int UserId { get; set; }
 
         internal override string MethodName => "unbanChatMember";

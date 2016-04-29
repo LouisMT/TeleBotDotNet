@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendLocationRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
         public bool DisableNotification { get; set; }

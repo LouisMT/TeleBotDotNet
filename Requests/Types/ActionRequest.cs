@@ -1,4 +1,5 @@
-﻿using TeleBotDotNet.Http;
+﻿using TeleBotDotNet.Extensions;
+using TeleBotDotNet.Http;
 using TeleBotDotNet.Requests.Types.Bases;
 
 namespace TeleBotDotNet.Requests.Types

@@ -5,7 +5,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class ForwardMessageRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public int FromChatId { get; set; }
         public bool DisableNotification { get; set; }
         public int MessageId { get; set; }

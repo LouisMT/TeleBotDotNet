@@ -72,7 +72,7 @@
     <Compile Include="Responses\Types\VenueResponse.cs" />
     <Compile Include="Responses\Types\VoiceResponse.cs" />
     <Compile Include="TeleBot.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="Extensions\Helpers.cs" />
     <Compile Include="Http\HttpData.cs" />
     <Compile Include="Http\HttpFile.cs" />
     <Compile Include="Http\HttpFileList.cs" />
@@ -129,6 +129,7 @@
     <Compile Include="Responses\Types\VideoResponse.cs" />
     <Compile Include="Extensions\TeleBotExtensions.cs" />
     <Compile Include="TeleBotMethods.cs" />
+    <Compile Include="TeleChatId.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

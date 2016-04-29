@@ -6,7 +6,7 @@ namespace TeleBotDotNet.Requests.Methods
 {
     public class SendStickerRequest : BaseMethodRequest
     {
-        public int ChatId { get; set; }
+        public TeleChatId ChatId { get; set; }
         public InputFileRequest Sticker { get; set; }
         public bool DisableNotification { get; set; }
         public int ReplyToMessageId { get; set; }
